@@ -14,7 +14,9 @@ Link: https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets
 
 Description: A delegate is an object which refers to a method or you can say it is a reference type variable that can hold a reference to the methods. Delegates in C# are similar to the function pointer in C/C++. It provides a way which tells which method is to be called when an event is triggered.
 
-https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/DelegateHandlerPublisher_PressHere.png
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/DelegateHandlerPublisher_PressHere.png)
+Format: ![Alt Text](url)
+
 
 1. Press the button to view the result.
 
