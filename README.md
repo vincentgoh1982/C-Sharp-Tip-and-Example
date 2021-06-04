@@ -18,7 +18,7 @@ Description: A delegate is an object which refers to a method or you can say it 
 
 
 
-1. Press the button to view the result.
+*Press the button to view the result.
 
 Link: https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Delegate_event/ObjectController.cs
 
