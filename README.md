@@ -1,5 +1,7 @@
 # C-Sharp-Tip-and-Example
 
+Description: For easy to understand by using example and grab code instantly.
+
 # RuntimeInitializeOnLoadMethodAttribute(Unity)
 Link: https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Initialize/InitializeLoad.cs
 
