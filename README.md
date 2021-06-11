@@ -2,14 +2,31 @@
 
 Description: For easy to understand by using example and grab code instantly.
 
+------------
+
 # RuntimeInitializeOnLoadMethodAttribute(Unity)
+
+### Description:
+RuntimeInitializeOnLoadMethodAttribute executed after Awake.
+
+### Order of execution for event functions:
+![Image of execution for event function](https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg)
 
 Link: | Description:
 ------------ | -------------
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Initialize/InitializeLoad.cs | Allow a runtime class method to be initialized when a game is loaded at runtime without action from the user. Add any "Service" component to the prefab. 
   Null | Examples: Input, Saving, Sound, Config, Asset Bundles, Advertisements
 
+------------
 # Delegate Event Handler(C#)
+
+### Description:
+Events are very useful in developing loosely coupled system. An event based system has two parts:
+
+Title: | Description:
+------------ | -------------
+Publisher| responsible for creating and invoking events.
+Subscriber| responsible for subscribing the events. When an event is invoked then all the subscribed method are also invoked.
 
 Link: | Description:
 ------------ | -------------
