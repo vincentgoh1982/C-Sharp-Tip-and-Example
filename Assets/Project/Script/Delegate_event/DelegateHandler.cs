@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DelegateHandler : MonoBehaviour
 {
-    public delegate void OnButtonClickDelegate();
+    public delegate void OnButtonClickDelegate(string Name);
     public static OnButtonClickDelegate buttonClickDelegate;
 
     public void Start()
@@ -15,6 +15,6 @@ public class DelegateHandler : MonoBehaviour
     [Button]
     public void Press()
     {
-        buttonClickDelegate();
+        buttonClickDelegate("Vincent");
     }
 }
