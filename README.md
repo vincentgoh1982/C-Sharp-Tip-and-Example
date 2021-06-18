@@ -22,7 +22,7 @@ Link: | Description:
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Initialize/InitializeLoad.cs | Allow a runtime class method to be initialized when a game is loaded at runtime without action from the user. Add any "Service" component to the prefab. 
   Null | Examples: Input, Saving, Sound, Config, Asset Bundles, Advertisements
 
-## Delegate Event Handler(C#)
+## Delegate Event Handler
 
 ### Description:
 Events are very useful in developing loosely coupled system. An event based system has two parts:
