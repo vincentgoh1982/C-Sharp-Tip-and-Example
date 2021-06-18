@@ -1,9 +1,13 @@
-# C-Sharp-Tip-and-Example
+<p align="center">
+  <img height="200" src="icon.png" alt="Vincent logo">
+  <h1 align="center">C-Sharp-Tip-and-Example</h1>
+</p>
+<p align="center">Description: For easy to understand by using example and grab code instantly.
+</p>
 
-Description: For easy to understand by using example and grab code instantly.
-
-------------
-
+## Table of Contents
+- [RuntimeInitializeOnLoadMethodAttribute](#runtimeInitializeOnLoadMethodAttribute)
+------
 # RuntimeInitializeOnLoadMethodAttribute(Unity)
 
 ### Description:
