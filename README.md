@@ -4,12 +4,14 @@
 </p>
 <p align="center">Description: For easy to understand by using example and grab code instantly.
 </p>
+
 ---
 
 ## Table of Contents
+- [RuntimeInitializeOnLoadMethodAttribute](#runtimeInitializeOnLoadMethodAttribute)
 - [Delegate Event Handler](#delegate-event-handler)
 
-## RuntimeInitializeOnLoadMethodAttribute(Unity)
+## RuntimeInitializeOnLoadMethodAttribute
 
 ### Description:
 RuntimeInitializeOnLoadMethodAttribute executed after Awake.
