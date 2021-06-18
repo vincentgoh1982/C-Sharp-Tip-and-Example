@@ -11,6 +11,7 @@
 - [RuntimeInitializeOnLoadMethodAttribute](#runtimeInitializeOnLoadMethodAttribute)
 - [Delegate Event Handler](#delegate-event-handler)
 - [Coroutines and Async](#coroutines-and-async)
+- [Interface](#interface)
 
 ## RuntimeInitializeOnLoadMethodAttribute
 
