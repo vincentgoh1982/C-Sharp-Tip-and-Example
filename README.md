@@ -55,3 +55,16 @@ Link: | Description:
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Coroutine_Async/Async.cs| help to divide your logic into awaitable tasks, where you can perform some long running operations such as reading large file, doing an API call, downloading a resource from web or performing a complex calculation without having to block the execution of your application on UI or service.
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Coroutines.png)| 1. Press the button to view the result.
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Coroutine_Async/Coroutine.cs|used in Unity to stop the execution until sometime or certain condition is met, and continues from where it had left off."
+
+## Interface
+
+### Description:
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/diagram_interface.png)
+
+An Interface provides a contract specifying how to create an Object, without caring about the specifics of how they do the things. An Interface is a reference type and it included only abstract members such as Events, Methods, Properties etc. and it has no implementations for any of its members.
+Link: | Description:
+------------ | -------------
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Normal.png)| 1. Press the button to view the result. 
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/tree/main/Assets/Project/Script/C%23%20Interface/Normal | The Normal method: If user want to send them SMS instead of E-mail or both. Need to change the method inside the class, it need to be recompiled and redeployed it.
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Interface.png)| 1. Press the button to view the result. 
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/tree/main/Assets/Project/Script/C%23%20Interface/Interface| To reduce the impact of change in our software. Using Open for extension and Closed for modification prinicple(OCP). Interface is just a role in a contract(Open for extension).
