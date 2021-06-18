@@ -4,10 +4,10 @@
 </p>
 <p align="center">Description: For easy to understand by using example and grab code instantly.
 </p>
-------
+---
 ## Table of Contents
 - [Delegate Event Handler](#delegate-event-handler)
-------
+
 ## RuntimeInitializeOnLoadMethodAttribute(Unity)
 
 ### Description:
@@ -21,7 +21,6 @@ Link: | Description:
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Initialize/InitializeLoad.cs | Allow a runtime class method to be initialized when a game is loaded at runtime without action from the user. Add any "Service" component to the prefab. 
   Null | Examples: Input, Saving, Sound, Config, Asset Bundles, Advertisements
 
-------------
 ## Delegate Event Handler(C#)
 
 ### Description:
