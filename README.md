@@ -4,11 +4,11 @@
 </p>
 <p align="center">Description: For easy to understand by using example and grab code instantly.
 </p>
-
+------
 ## Table of Contents
 - [Delegate Event Handler](#delegate-event-handler)
 ------
-# RuntimeInitializeOnLoadMethodAttribute(Unity)
+## RuntimeInitializeOnLoadMethodAttribute(Unity)
 
 ### Description:
 RuntimeInitializeOnLoadMethodAttribute executed after Awake.
@@ -22,7 +22,7 @@ https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Proje
   Null | Examples: Input, Saving, Sound, Config, Asset Bundles, Advertisements
 
 ------------
-# Delegate Event Handler(C#)
+## Delegate Event Handler(C#)
 
 ### Description:
 Events are very useful in developing loosely coupled system. An event based system has two parts:
