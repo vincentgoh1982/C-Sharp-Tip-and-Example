@@ -5,6 +5,7 @@
 <p align="center">Description: For easy to understand by using example and grab code instantly.
 </p>
 ---
+
 ## Table of Contents
 - [Delegate Event Handler](#delegate-event-handler)
 
