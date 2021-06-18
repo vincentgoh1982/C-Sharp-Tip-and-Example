@@ -6,7 +6,7 @@
 </p>
 
 ## Table of Contents
-- [RuntimeInitializeOnLoadMethodAttribute](#runtimeInitializeOnLoadMethodAttribute)
+- [Delegate Event Handler](#delegate-event-handler)
 ------
 # RuntimeInitializeOnLoadMethodAttribute(Unity)
 
