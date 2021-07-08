@@ -57,4 +57,5 @@ public class ChatBehavior : NetworkBehaviour
         OnMessage?.Invoke($"\n{message}");
     }
 
+
 }
