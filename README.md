@@ -107,18 +107,18 @@ Link: | Description:
 ------------ | -------------
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/PlayerController.cs| Player's information share with the server
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/SceneScript.cs| A scene networked object all can access and adjust.
-https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/SceneReference.cs| NetworkIdentity scene object gets disabled, as they are disabled until a player is in ‘ready’ status (ready status is usually set when player spawns).The workaround is to have our GameObject.Find() get the non-networked scene object, which will have those Network Identity scene object as pre-set variables. "sceneScript = GameObject.Find("SceneReference").GetComponent<SceneReference>().sceneScript;"
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/SceneReference.cs| NetworkIdentity scene object gets disabled, as they are disabled until a player is in ‘ready’ status (ready status is usually set when player spawns).The workaround is to have the GameObject.Find() get the non-networked scene object, which will have those Network Identity scene object as pre-set variables. "sceneScript = GameObject.Find("SceneReference").GetComponent<SceneReference>().sceneScript;"
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/ChatBehavior.cs| Chat script which require to hide the Canvas until the method OnStartAuthority()
 
 ### Mirror API Library:  
 API: | Description:
 ------------ | ------------- 
-[Client]| | It informs the user that the server is not active. client-only code
-[Command] | It tells the server what a client wants to change.
-[ClientRpc] | It tells the clients what the server has decided to do.
-[SyncVar(hook = nameof(Method))]| It fires for changed values
+[Command]|It tells the server what a client wants to change.
+[ClientRpc]|It tells the clients what the server has decided to do.
+[SyncVar(hook = nameof(Method))]|It fires for changed values
 ClientCallback|It inform the user that the server is not active.   
-[SyncVar]| It automatically synchronize variables from Server->Client.
-OnStartLocalPlayer | It is called on the machine that is the local player.
-OnStartClient| It called by the NetworkManager and it works like any other hook.
-OnStartAuthority | It called on clients for behaviours that have authority, based on context and hasAuthority.
+[SyncVar]|It automatically synchronize variables from Server->Client.
+OnStartLocalPlayer|It is called on the machine that is the local player.
+OnStartClient|It called by the NetworkManager and it works like any other hook.
+OnStartAuthority |It called on clients for behaviours that have authority, based on context and hasAuthority.
+[Client]|It informs the user that the server is not active. Client-only code
