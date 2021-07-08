@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class DeactiveGameObject : MonoBehaviour
 {
-    [System.Obsolete]
-    void Awake()
-    {
-        this.gameObject.active=false;
-    }
 
+    void Start()
+    {
+        StartCoroutine(OffUI());
+    }
+    [System.Obsolete]
+    IEnumerator OffUI()
+    {
+        yield return new WaitForSecondsRealtime(5);
+
+        this.gameObject.active = false;
+    }
 }

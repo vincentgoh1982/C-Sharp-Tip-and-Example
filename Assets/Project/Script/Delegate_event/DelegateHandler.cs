@@ -6,6 +6,8 @@ public class DelegateHandler : MonoBehaviour
     public delegate void OnButtonClickDelegate(string Name);
     public static OnButtonClickDelegate buttonClickDelegate;
 
+    public delegate void OnButton2ClickDelegate(string Name);
+    public event OnButton2ClickDelegate onButton2ClickDelegate;
     public void Start()
     {
         GameObject HideOnStart = GameObject.Find("SecondCanvas(Clone)");
@@ -13,8 +15,14 @@ public class DelegateHandler : MonoBehaviour
     }
 
     [Button]
-    public void Press()
+    public void PressVincent()
     {
         buttonClickDelegate("Vincent");
+    }
+
+    [Button]
+    public void PressJason()
+    {
+        onButton2ClickDelegate("Jason");
     }
 }

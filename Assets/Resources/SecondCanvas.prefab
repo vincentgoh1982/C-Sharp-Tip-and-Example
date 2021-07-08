@@ -258,7 +258,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -277,7 +277,8 @@ MonoBehaviour:
     Going from\r\nIntro (Load a lot of stuff) -> Main Menu -> Level Select -> Your
     Level.\r\n\r\nIf you just want to test your scene, then this can become very
     tedious over time.\r\nMaking a game takes a lot of time, it is important to invest
-    in making your iteration process quick and easy."
+    in making your iteration process quick and easy.\n\nPress keyboard Backspace
+    to close it."
 --- !u!1 &7837706007455119978
 GameObject:
   m_ObjectHideFlags: 0

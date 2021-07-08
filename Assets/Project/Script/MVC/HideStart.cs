@@ -5,13 +5,16 @@ using UnityEngine;
 public class HideStart : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        StartCoroutine(hideUI());
+        // Press the space key to add the Scene additively and move the GameObject to that Scene
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            hideUI();
+        }
     }
-     IEnumerator hideUI()
+    private void hideUI()
     {
-        yield return new WaitForSeconds(1.0f);
         GameObject ui2D = GameObject.Find("SecondCanvas(Clone)");
         ui2D.SetActive(false);
     }
