@@ -45,7 +45,7 @@ namespace QuickStart
             }
         }
 
-        [Command]
+        [Command]//Commands tell the server what a client wants to change.
         public void CmdChangeActiveWeapon(int newIndex)
         {
             activeWeaponSynced = newIndex;
@@ -154,13 +154,13 @@ namespace QuickStart
             }
         }
 
-        [Command]
+        [Command]//Commands tell the server what a client wants to change.
         void CmdShootRay()
         {
             RpcFireWeapon();
         }
 
-        [ClientRpc]
+        [ClientRpc]//ClientRpcs tell the clients what the server has decided to do.
         void RpcFireWeapon()
         {
             //bulletAudio.Play(); muzzleflash  etc
