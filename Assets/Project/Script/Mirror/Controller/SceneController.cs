@@ -16,9 +16,10 @@ public class SceneController : SceneElement
 
     private void LoadYourAsyncScene()
     {
-        foreach(string sceneName in app.model.sceneName)
+        if (app.model.sceneName[app.model.num] != null)
         {
-            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(app.model.sceneName[app.model.num], LoadSceneMode.Additive);
+            app.model.num += 1;
         }
     }
 }

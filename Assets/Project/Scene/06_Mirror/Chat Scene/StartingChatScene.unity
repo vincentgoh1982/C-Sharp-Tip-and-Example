@@ -786,6 +786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName:
   - SecondChatScene
+  num: 0
 --- !u!4 &1675715691
 Transform:
   m_ObjectHideFlags: 0
