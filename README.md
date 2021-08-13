@@ -14,6 +14,7 @@
 - [Interface](#interface)
 - [AMVC](#amvc)
 - [Mirror](#mirror)
+- [OSM Data](#osm-data)
 
 ---
 
@@ -105,6 +106,7 @@ Mirror is successor to UNET API, but uses TCP. It makes testing and small LAN ga
 
 Link: | Description:
 ------------ | -------------
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Application/SceneApplication.cs| Single entry point to your application and container of all critical instances and application-related data.
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/PlayerController.cs| Player's information share with the server
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/SceneScript.cs| A scene networked object all can access and adjust.
 https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Mirror/Controller/SceneReference.cs| NetworkIdentity scene object gets disabled, as they are disabled until a player is in ‘ready’ status (ready status is usually set when player spawns).The workaround is to have the GameObject.Find() get the non-networked scene object, which will have those Network Identity scene object as pre-set variables. "sceneScript = GameObject.Find("SceneReference").GetComponent<SceneReference>().sceneScript;"
@@ -122,3 +124,22 @@ OnStartLocalPlayer|It is called on the machine that is the local player.
 OnStartClient|It called by the NetworkManager and it works like any other hook.
 OnStartAuthority |It called on clients for behaviours that have authority, based on context and hasAuthority.
 [Client]|It informs the user that the server is not active. Client-only code
+  
+## OSM Data
+### Description: 
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/OSMDataTree.png)
+  
+Open Street Map(OSM) as a gigantic database of all the things in the world.
+  
+Link: | Description:
+------------ | -------------  
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Application/Application_Tree.cs|Single entry point to your application and container of all critical instances and application-related data.
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Controller/Controller_OSMRequestArea.cs|Get information from OSM data and plant the tree according to the OSM data and green color of the tile.
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Controller/I_OSMInterface.cs|To reduce the impact of change in our software. Using Open for extension and Closed for modification prinicple(OCP). Interface is just a role in a contract(Open for extension).
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Controller/I_ColorTileTree.cs|Create a list of longitiude and latitude value within the map.
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Controller/I_OSMTree.cs|Create a list of longitiude and latitude value from OSM data of tree.
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Controller/OSMAddInterface.cs|Get a list of interface scripts.  
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/Model/Model_Tree.cs|Models (Data CRUD) contains all data related to the application.
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/OSM_Data/View/View_Tree.cs|Views (Interface/3D objects) contains all views related to the application.
+ https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/OSMData.png| 1. Press the button to loading tree. 2. Press the button to stop loading tree. 
+ 
