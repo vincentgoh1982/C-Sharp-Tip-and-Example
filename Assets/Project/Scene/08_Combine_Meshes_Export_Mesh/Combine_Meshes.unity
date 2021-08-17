@@ -270,16 +270,41 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Open Street Map(OSM) as a gigantic database of all the things in the world.\n\nLink:
-    https://satellitestud.io/blog/post/openstreetmap-haiku/\n\n\"node[natural=tree]\"
-    is to retrieve all the nodes that represent trees\r\n\"way[landuse = forest]\"
-    is to retrieve all the way that represent forest\r\n\"relation[landuse = forest]\"
-    is to retrieve all the relation that represent forest\n\nBy filtering, It reduces
-    the number of data that gets from the website.\n\nExample:\n\nstring requestData
-    = string.Format(OnlineMapsUtils.numberFormat, \"(node[natural=tree]({0},{1},{2},{3});way[landuse
-    = forest]({0},{1},{2},{3});relation[landuse = forest]({0},{1},{2},{3}););out;>;out
-    skel qt;\",\r\n        bry, tlx, tly, brx, \"'landuse'\");\n\nPress spacebar
-    to exit this page.\n"
+  m_Text: 'Link: https://blog.unity.com/technology/optimize-your-mobile-game-performance-expert-tips-on-graphics-and-assets
+
+
+    Avoid
+    large hierarchies:
+
+
+    Split your hierarchies. If your GameObjects do not need
+    to be nested in a hierarchy, simplify the parenting. Smaller hierarchies benefit
+    from multithreading to refresh the Transforms in your scene. Complex hierarchies
+    incur unnecessary Transform computations and more cost to garbage collection.
+
+
+    Mesh.indexFormat:
+
+
+    Format
+    of the mesh index buffer data.
+
+    Index buffer can either be 16 bit (supports
+    up to 65535 vertices in a mesh), or 32 bit (supports up to 4 billion vertices).
+    Default index format is 16 bit, since that takes less memory and bandwidth.
+
+
+    Link:
+    https://github.com/KellanHiggins/UnityFBXExporter
+
+    
+
+    Export any GameObject
+    into FBX format:
+
+
+    1. Go to Assets menu -> FBX Exporter -> and you have three
+    options (described below).'
 --- !u!222 &914867746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -992,7 +1017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 7. OSM Data
+  m_Text: 7. Combine Meshes
 --- !u!222 &1660020325
 CanvasRenderer:
   m_ObjectHideFlags: 0
