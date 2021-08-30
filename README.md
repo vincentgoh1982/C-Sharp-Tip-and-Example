@@ -166,12 +166,12 @@ Using object pooling for ephemeral objects is faster than creating and destroyin
 Link: | Description:
 ------------ | -------------   
 [Application_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Application/Application_Pooling.cs)| Single entry point to your application and container of all critical instances and application-related data.  
-[Controller_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Controller/Controller_Pooling.cs)| Convert all the building mesh into one building mesh.
+[Controller_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Controller/Controller_Pooling.cs)|Reusing game object from a “pool”
 [Model_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Model/Model_Pooling.cs)| Models (Data CRUD) contains all data related to the application.
 [View_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/View/View_Pooling.cs)| (Interface/3D objects) contains all views related to the application.  
 [Ball_Pooling.prefab](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/Prefab/Ball_Pooling.prefab)| Prefab for bullets
 [Application_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Application/Application_Instantiate.cs)| Single entry point to your application and container of all critical instances and application-related data.  
-[Controller_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Controller/Controller_Instantiate.cs)| Convert all the building mesh into one building mesh.
+[Controller_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Controller/Controller_Instantiate.cs)| Creating new objects and destroying old ones during gameplay.
 [Model_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Model/Model_Instantiate.cs)| Models (Data CRUD) contains all data related to the application.
 [View_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/View/View_Instantiate.cs)| (Interface/3D objects) contains all views related to the application.  
 [Ball_Instantiate.prefab](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/Prefab/Ball_Instantiate.prefab)| Prefab for bullets 
