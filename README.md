@@ -16,6 +16,7 @@
 - [Mirror](#mirror)
 - [OSM Data](#osm-data)
 - [Combine Unity Meshes](#combine-unity-meshes)
+- [Object Pooling](#object-pooling)
 
 ---
 
@@ -156,3 +157,21 @@ Link: | Description:
 [View_CombineMeshes.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Combine_Meshes_Export_Mesh/View/View_CombineMeshes.cs)| (Interface/3D objects) contains all views related to the application.
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/CombineMeshes.png)| 1. Press Button Combine Mesh to combine all the building meshes into one building mesh
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Export%20FBX.png)| 1. Go to Assets menu -> FBX Exporter -> and you have three options (described below). This code comes from other programmer.
+
+## Object Pooling
+### Description:  
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/NonVsPooling.png)  
+Using object pooling for ephemeral objects is faster than creating and destroying them, because it makes memory allocation simpler and removes dynamic memory allocation overhead and Garbage Collection, or GC.
+ 
+Link: | Description:
+------------ | -------------   
+[Application_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Application/Application_Pooling.cs)| Single entry point to your application and container of all critical instances and application-related data.  
+[Controller_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Controller/Controller_Pooling.cs)| Convert all the building mesh into one building mesh.
+[Model_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/Model/Model_Pooling.cs)| Models (Data CRUD) contains all data related to the application.
+[View_Pooling.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Pooling/View/View_Pooling.cs)| (Interface/3D objects) contains all views related to the application.  
+[Ball_Pooling.prefab](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/Prefab/Ball_Pooling.prefab)| Prefab for bullets
+[Application_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Application/Application_Instantiate.cs)| Single entry point to your application and container of all critical instances and application-related data.  
+[Controller_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Controller/Controller_Instantiate.cs)| Convert all the building mesh into one building mesh.
+[Model_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Model/Model_Instantiate.cs)| Models (Data CRUD) contains all data related to the application.
+[View_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/View/View_Instantiate.cs)| (Interface/3D objects) contains all views related to the application.  
+[Ball_Instantiate.prefab](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/Prefab/Ball_Instantiate.prefab)| Prefab for bullets 
