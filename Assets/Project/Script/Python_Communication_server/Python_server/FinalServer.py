@@ -1,6 +1,5 @@
 
 #!/usr/bin/env python
-
 import socket, select
 
 
@@ -27,8 +26,10 @@ if __name__ == "__main__":
 	RECV_BUFFER = 4096 
 	
 	# Enter the server's IP and Port
-	host = '172.16.1.6'
+	host = socket.gethostbyname(socket.gethostname())
 	port = 1234
+
+	print("IP address: "+ host + " Port number: " + str(port))
 
 	# Boolean to keep the server running
 	runServer = True
@@ -39,6 +40,7 @@ if __name__ == "__main__":
 	server.listen(10)
 
 	print("Chat server started on port " + str(port))
+	ip_string =str(port)
 
 	# Add server socket to the list of readable connections
 	CONNECTION_LIST.append(server)
@@ -59,7 +61,6 @@ if __name__ == "__main__":
 				CONNECTION_LIST.append(client)
 
 				print("Client (%s, %s) connected" % addr)
-				
 				# broadcast_data(client, "[%s:%s] entered room\n" % addr)
 			
 			# New message from a client
@@ -86,3 +87,5 @@ if __name__ == "__main__":
 					continue
 	
 	server.close()
+
+
