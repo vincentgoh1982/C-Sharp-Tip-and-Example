@@ -17,6 +17,7 @@
 - [OSM Data](#osm-data)
 - [Combine Unity Meshes](#combine-unity-meshes)
 - [Object Pooling](#object-pooling)
+- [Work with TCP Sockets in Python](#work-with-tcp-sockets-in-python)
 
 ---
 
@@ -175,3 +176,28 @@ Link: | Description:
 [Model_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/Model/Model_Instantiate.cs)| Models (Data CRUD) contains all data related to the application.
 [View_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/View/View_Instantiate.cs)| (Interface/3D objects) contains all views related to the application.  
 [Ball_Instantiate.prefab](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/Prefab/Ball_Instantiate.prefab)| Prefab for bullets 
+
+## Work with TCP Sockets in Python 
+### Description: 
+A network socket is an endpoint of an interprocess communication across a computer network. The Python Standard Library has a module called socket which provides a low-level internet networking interface. This interface is common across different programming languages since it uses OS-level system calls. 
+
+### Socket methods: 
+Socket method: | Description:
+------------ | -------------   
+bind(), listen() and accept()| They are specific for server sockets. 
+connect()|It is specific for client sockets. 
+send() and recv()|They are common for both types.
+
+### Python server and client:
+Link: | Description:
+------------ | -------------   
+[FinalServer.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalServer.py)| TCP-socket server
+[FinalClient.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalClient.py)| TCP-socket client
+ 
+### C# unity:
+Link: | Description:
+------------ | -------------   
+[Application_ServerResponse.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Application/Application_ServerResponse.cs)|Single entry point to your application and container of all critical instances and application-related data.  
+[Controller_ServerResponse.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Controller/Controller_ServerResponse.cs)|Connect to the TCP-socket server and send message
+[Model_ServerResponse.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Model/Model_ServerResponse.cs)| IP address and Port number for the server
+    
