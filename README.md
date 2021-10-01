@@ -189,9 +189,10 @@ connect()|It is specific for client sockets.
 send() and recv()|They are common for both types.
 
 ### Python server and client:
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/PythonServer.png) 
 Link: | Description:
 ------------ | -------------   
-[FinalServer.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalServer.py)| TCP-socket server
+[FinalServer.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalServer.py)| TCP-socket server show the server's ip address and the server's port number to user. When there is client connected to the server, it will show the client's ip address and the client's port number.
 [FinalClient.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalClient.py)| TCP-socket client
  
 ### C# unity:
