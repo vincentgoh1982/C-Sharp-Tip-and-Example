@@ -302,7 +302,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Link: https://stackoverflow.com/questions/41330771/use-unity-api-from-another-thread-or-call-a-function-in-the-main-thread\n\nUnity
+  m_Text: "Check: https://github.com/Cysharp/UniTask#getting-started\n\nLink: https://stackoverflow.com/questions/41330771/use-unity-api-from-another-thread-or-call-a-function-in-the-main-thread\n\nUnity
     is not Thread safe, so they decided to make it impossible to call their API from
     another Thread by adding a mechanism to throw an exception when its API is used
     from another Thread. Using a boolean variable to let the main thread know that
