@@ -197,6 +197,7 @@ send() and recv()|They are common for both types.
 
 ### Python server and client:
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/PythonServer.png) 
+
 The socket library is a low-level networking interface that allows us to make a network endpoint for two way communication.
  
 Link: | Description:
@@ -216,7 +217,8 @@ Link: | Description:
 ## Unlock all the extra CPU power
 ### Description:  
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MainThreadCommand.png) 
- The Unity API can mostly only be used from the main thread. Provides an efficient allocation free async/await integration for Unity. To unlock all that extra CPU power!
+
+The Unity API can mostly only be used from the main thread. Provides an efficient allocation free async/await integration for Unity. To unlock all that extra CPU power!
 
 
 ### Worker Thread to Main Thread:
