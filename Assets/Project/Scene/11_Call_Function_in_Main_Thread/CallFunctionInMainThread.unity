@@ -302,22 +302,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Check: https://github.com/Cysharp/UniTask#getting-started\n\nLink: https://stackoverflow.com/questions/41330771/use-unity-api-from-another-thread-or-call-a-function-in-the-main-thread\n\nUnity
-    is not Thread safe, so they decided to make it impossible to call their API from
-    another Thread by adding a mechanism to throw an exception when its API is used
-    from another Thread. Using a boolean variable to let the main thread know that
-    you need to execute code in the main Thread.\n\nLink: \nhttps://www.jacksondunstan.com/articles/3930\n\nThe
+  m_Text: "Link: https://github.com/Cysharp/UniTask#getting-started\n\nProvides an
+    efficient allocation free async/await integration for Unity.\n\nLink: \nhttps://www.jacksondunstan.com/articles/3930\n\nThe
     Unity API can mostly only be used from the main thread. This is used as an excuse
     by Unity developers to write all their code on the main thread. This makes their
     code run 2-6x slower. So what can we do about it? Today\u2019s article presents
     a simple way to use the Unity API from other threads. Read on to learn how to
-    unlock all that extra CPU power!\n\nHow it works:\n\n1. First, initialize it
-    from the Awake() function.\n\nvoid Awake()\r{\r UnityThread.initUnityThread();
-    \r}\n\n2. To Start a coroutine function in the main Thread from another Thread:\n\nUnityThread.executeCoroutine(myCoroutine());\r\n\r\nIEnumerator
-    myCoroutine()\r\n{\r\n    Debug.Log(\"Hello\");\r\n    yield return new WaitForSeconds(2f);\r\n   
-    Debug.Log(\"Test\");\r\n}\n\n3. .To execute a code in the main Thread from another
-    Thread:\n\nUnityThread.executeInUpdate(() =>\r\n{\r\n    transform.Rotate(new
-    Vector3(0f, 90f, 0f));\r\n});"
+    unlock all that extra CPU power!\n\nLink:\nhttps://medium.com/@imwithye/asynchronous-function-in-unity-a229941ef353\n\nprivate
+    async void Start()\r\n{\r\n\tLog(\"Start\", \"Task delay 2 seconds\");\r\n\tawait
+    UniTask.Delay(TimeSpan.FromSeconds(2));\r\n\tLog(\"Start\", \"Task delay 2 finished\");\r\n\tLog(\"Start\",
+    \"Thread sleep 2 seconds\");\r\n\tawait UniTask.SwitchToThreadPool();\r\n\tLog(\"Start\",
+    \"Going to sleep\");\r\n\tThread.Sleep(TimeSpan.FromSeconds(2));\r\n\tawait UniTask.SwitchToMainThread();\r\n\tLog(\"Start\",
+    \"Thread sleep done\");\r\n}\n\nUniTask will push the current execution context
+    to the thread pool after UniTask.SwitchToThreadPool() and switch back to main
+    thread after UniTask.SwitchToMainThread().\n\n"
 --- !u!222 &914867746
 CanvasRenderer:
   m_ObjectHideFlags: 0

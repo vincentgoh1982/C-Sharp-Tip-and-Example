@@ -1,5 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System;
+using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class Controller_OtherToMainThread : Element_MainThread
@@ -7,24 +9,22 @@ public class Controller_OtherToMainThread : Element_MainThread
     private bool coroutineRunning = false;
 
     private float prevLon, prevLat, prevZoom;
-    private void Awake()
-    {
-        UnityThread.initUnityThread(); //initizlize the function
-    }
 
     void Start()
     {
         app.controller.LonLatZoomEvent += ReceiveLonLatZoom;
     }
 
-    private void ReceiveLonLatZoom(string lonLatZoom)
+    private async void ReceiveLonLatZoom(string lonLatZoom)
     {
+        Thread.Sleep(TimeSpan.FromSeconds(1));
+        await UniTask.SwitchToMainThread();//allows the thread changes current context to a thread pool thread and execute on the background
 
         float lon = 0, lat = 0, zoom = 0;
 
         if (coroutineRunning)
         {
-            UnityThread.executeStopCoroutine(ChangeLonLatZoom(lon, lat, zoom));//To stop a coroutine function in the main Thread from another Thread
+            StopCoroutine(ChangeLonLatZoom(lon, lat, zoom));//To stop a coroutine function in the main Thread from another Thread
         }
 
         string[] textSplit = lonLatZoom.Split(char.Parse("_"));
@@ -77,7 +77,7 @@ public class Controller_OtherToMainThread : Element_MainThread
             }
 
         }
-        UnityThread.executeCoroutine(ChangeLonLatZoom(lon, lat, zoom));//To start a coroutine function in the main Thread from another Thread
+        StartCoroutine(ChangeLonLatZoom(lon, lat, zoom));//To start a coroutine function in the main Thread from another Thread
 
     }
 
