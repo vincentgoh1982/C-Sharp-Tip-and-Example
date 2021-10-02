@@ -213,7 +213,7 @@ Link: | Description:
 
 ---
   
-##Unlock all the extra CPU power
+## Unlock all the extra CPU power
 ### Description:  
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MainThreadCommand.png) 
  The Unity API can mostly only be used from the main thread. This is used as an excuse by Unity developers to write all their code on the main thread. 
