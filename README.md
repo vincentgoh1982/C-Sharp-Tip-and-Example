@@ -18,6 +18,7 @@
 - [Combine Unity Meshes](#combine-unity-meshes)
 - [Object Pooling](#object-pooling)
 - [Work with TCP Sockets in Python](#work-with-tcp-sockets-in-python)
+- [Unlock all the extra CPU power](#unlock-all-the-extra-cpu-power)
 
 ---
 
@@ -101,6 +102,8 @@ Link: | Description:
 [BounceView.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/MVC/View/BounceView.cs)| Views (Interface/Detection) contains all views related to the application.
 [BallView.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/MVC/View/BallView.cs)| Views to describes the Ball view and its features.
 
+---
+
 ## Mirror
 ### Description: 
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/PhotonVsUnet.png)
@@ -159,6 +162,8 @@ Link: | Description:
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/CombineMeshes.png)| 1. Press Button Combine Mesh to combine all the building meshes into one building mesh
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Export%20FBX.png)| 1. Go to Assets menu -> FBX Exporter -> and you have three options (described below). This code comes from other programmer.
 
+---
+  
 ## Object Pooling
 ### Description:  
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/NonVsPooling.png)  
@@ -177,6 +182,8 @@ Link: | Description:
 [View_Instantiate.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Object_Instantiate/View/View_Instantiate.cs)| (Interface/3D objects) contains all views related to the application.  
 [Ball_Instantiate.prefab](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/Prefab/Ball_Instantiate.prefab)| Prefab for bullets 
 
+---
+  
 ## Work with TCP Sockets in Python 
 ### Description: 
 A network socket is an endpoint of an interprocess communication across a computer network. The Python Standard Library has a module called socket which provides a low-level internet networking interface. This interface is common across different programming languages since it uses OS-level system calls. 
@@ -190,15 +197,36 @@ send() and recv()|They are common for both types.
 
 ### Python server and client:
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/PythonServer.png) 
+
+The socket library is a low-level networking interface that allows us to make a network endpoint for two way communication.
+ 
 Link: | Description:
 ------------ | -------------   
 [FinalServer.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalServer.py)| TCP-socket server show the server's ip address and the server's port number to user. When there is client connected to the server, it will show the client's ip address and the client's port number.
 [FinalClient.py](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Python_server/FinalClient.py)| TCP-socket client
  
-### C# unity:
+### C# unity: 
 Link: | Description:
 ------------ | -------------   
 [Application_ServerResponse.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Application/Application_ServerResponse.cs)|Single entry point to your application and container of all critical instances and application-related data.  
 [Controller_ServerResponse.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Controller/Controller_ServerResponse.cs)|Connect to the TCP-socket server and send message
 [Model_ServerResponse.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Python_Communication_server/Model/Model_ServerResponse.cs)| IP address and Port number for the server
-    
+
+---
+  
+## Unlock all the extra CPU power
+### Description:  
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MainThreadCommand.png) 
+
+The Unity API can mostly only be used from the main thread. Provides an efficient allocation free async/await integration for Unity. To unlock all that extra CPU power!
+
+
+### Worker Thread to Main Thread:
+ Link: | Description:
+------------ | -------------
+[Application_MainThread.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/Application/Application_MainThread.cs)|Single entry point to your application and container of all critical instances and application-related data.
+[Controller_Network.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/Controller/Controller_Network.cs)|Connect to the TCP-socket server and send message or receive message
+[Controller_OtherToMainThread.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/Controller/Controller_OtherToMainThread.cs)|From worker thread to main thread to pan the map according to the information received.
+ ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MainThreadCommand2.png)
+[Model_Network.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/Model/Model_Network.cs)|IP address and Port number for the server and lerp duration value for animation.
+[View_MainThread.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/View/View_MainThread.cs)|Online map 3D game object
