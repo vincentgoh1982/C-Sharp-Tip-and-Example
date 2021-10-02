@@ -18,7 +18,8 @@
 - [Combine Unity Meshes](#combine-unity-meshes)
 - [Object Pooling](#object-pooling)
 - [Work with TCP Sockets in Python](#work-with-tcp-sockets-in-python)
--[Unlock all the extra CPU power](#unlock-all-the-extra-cpu-power)
+- [Unlock all the extra CPU power](#unlock-all-the-extra-cpu-power)
+
 ---
 
 ## RuntimeInitializeOnLoadMethodAttribute
@@ -213,9 +214,11 @@ Link: | Description:
 ---
   
 ##Unlock all the extra CPU power
-  
+### Description:  
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MainThreadCommand.png) 
  The Unity API can mostly only be used from the main thread. This is used as an excuse by Unity developers to write all their code on the main thread. 
+
+### Worker Thread to Main Thread:
  Link: | Description:
 ------------ | -------------
 [Application_MainThread.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/Application/Application_MainThread.cs)|Single entry point to your application and container of all critical instances and application-related data.
