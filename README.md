@@ -236,7 +236,7 @@ The Unity API can mostly only be used from the main thread. Provides an efficien
   
 ## Link all material to common material
 ### Description:  
-A Material_to_material.cs unity editor help to link the gameobject's material to the common material inside the resources folder. So that all the GameObjects are sharing the same Material can be batched together. Therefore, if you want to achieve good batching, you should aim to share Materials among as many different GameObjects as possible. Batching is the act of grouping tasks together, so you do them all at once, instead of switching between tasks that take place in different programs or areas.
+A Material_to_material.cs unity editor help to link the gameobject's material to the common material inside the resources folder. So that all the GameObjects are sharing the same Material can be batched together. Therefore, if you want to achieve good batching, you should aim to share Materials among as many different GameObjects as possible. Batching is the act of grouping tasks together, so you do them all at once, instead of switching between tasks that take place in different programs or areas. Please refer to the Unity Manual regardling [Draw call Batching](https://docs.unity3d.com/Manual/DrawCallBatching.html).
 
 ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MaterialToCommonMaterial.png) 
 
