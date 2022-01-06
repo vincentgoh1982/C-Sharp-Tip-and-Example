@@ -19,6 +19,7 @@
 - [Object Pooling](#object-pooling)
 - [Work with TCP Sockets in Python](#work-with-tcp-sockets-in-python)
 - [Unlock all the extra CPU power](#unlock-all-the-extra-cpu-power)
+- [Link all material to common material](#link-all-material-to-common-material)
 
 ---
 
@@ -230,3 +231,29 @@ The Unity API can mostly only be used from the main thread. Provides an efficien
  ![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MainThreadCommand2.png)
 [Model_Network.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/Model/Model_Network.cs)|IP address and Port number for the server and lerp duration value for animation.
 [View_MainThread.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Call_Function_in_Main_Thread/View/View_MainThread.cs)|Online map 3D game object
+
+---
+  
+## Link all material to common material
+### Description:  
+A Material_to_material.cs unity editor help to link the gameobject's material to the common material inside the resources folder. So that all the GameObjects are sharing the same Material can be batched together. Therefore, if you want to achieve good batching, you should aim to share Materials among as many different GameObjects as possible. Batching is the act of grouping tasks together, so you do them all at once, instead of switching between tasks that take place in different programs or areas.
+
+![GitHub Logo](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/MaterialToCommonMaterial.png) 
+
+Step: | Description:
+------------ | -------------
+1|Go to Window and find materialDetector.
+2|Click the materialDetector, the unity editor will appear.
+3|Create a new folder for the new FBX and select the folder
+4|Click "Create material and texture folder" button to generate the material and texture folder.
+5|Drag the new FBX into the unity scene
+6|Drag the new FBX toward the "2. Drag the game object to here." information
+7|It will shows all the gameobject's information and number of gameobject's child.
+8|Click "Linking individual material to common material" button to link all the material to the gameobject.
+  
+Link: | Description:
+------------ | -------------
+[Material_to_material.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Editor/Material_to_material.cs)|An unity editor help to link according from the gameobject's material to the common material inside the resources folder.
+[Final_Toyota_Bus_Material.fbx](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Art/MiniBus/Final_Toyota_Bus_Material.fbx)|Example 3D model which shows a gameobject contains many material in itself.
+[LinkMaterials.unity](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Scene/12_Link_Multi_Materials/LinkMaterials.unity)|Example scene.
+---
