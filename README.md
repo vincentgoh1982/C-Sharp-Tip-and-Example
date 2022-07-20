@@ -20,6 +20,7 @@
 - [Work with TCP Sockets in Python](#work-with-tcp-sockets-in-python)
 - [Unlock all the extra CPU power](#unlock-all-the-extra-cpu-power)
 - [Link all material to common material](#link-all-material-to-common-material)
+- [Serilog](#serilog)
 
 ---
 ## Serilog
