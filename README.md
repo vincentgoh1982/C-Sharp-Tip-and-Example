@@ -22,7 +22,22 @@
 - [Link all material to common material](#link-all-material-to-common-material)
 
 ---
+## Serilog
 
+### Description: 
+Serilog uses what are called sinks to send your logs to a text file, database, or log management solutions, or potentially dozens of other places, all without changing your code. It will store individual days of error, which is easy for developer to debug the problem.
+
+### Order of execution for event functions:
+![Image of execution for event function](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/LogsButtons.png)
+
+### Generated Log Files:
+![Generated Log Files](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Logs.png)
+
+Link: | Description:
+------------ | -------------
+[Serilog_ExampleScript.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Serilog/Serilog_ExampleScript.cs)| To generate an error and record it into text file.
+
+---
 ## RuntimeInitializeOnLoadMethodAttribute
 
 ### Description:
