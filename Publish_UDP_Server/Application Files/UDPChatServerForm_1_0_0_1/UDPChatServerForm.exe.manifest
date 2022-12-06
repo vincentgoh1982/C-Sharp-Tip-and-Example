@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="UDPChatServerForm.exe" version="1.0.0.1" publicKeyToken="75966c6e8a0b31fa" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="UDPChatServerForm" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="UDPChatServerForm.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="711952">
+      <assemblyIdentity name="Newtonsoft.Json" version="13.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>xcg7vBdBvm/0xJDAruNMFilFQj7Fd8ZGU4stIc4TGZ4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UDP Asynchronous Chat.dll" size="10240">
+      <assemblyIdentity name="UDP Asynchronous Chat" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>pjfRzwFBgoCbRZZzfItawzUtLEhcfrJFD17nc1j4V4I=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UDPChatServerForm.exe" size="9200">
+      <assemblyIdentity name="UDPChatServerForm" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>XQr3K0s+dnaSyAl8B//LX0dDBwrT2Y8AITWoI4jWlU8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="UDPChatServerForm.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on
+           and is designed to work with. Uncomment the appropriate elements
+           and Windows will automatically select the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=DESKTOP-PC3R58V\Vincent" issuerKeyHash="8048e6cadf32761e636a6ad4c14d4a5090ef090b" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>eE8mg+fyn5h8cZM8ogzDaXceNpTR9LX4G2pNEL8CbrA=</DigestValue></Reference></SignedInfo><SignatureValue>32IiH1VtX9gZfXpixbsJEKceDzqW/2+bnF2fefacIXskIAQx97HC4HuWzoLp+HYhz/7VdKV76ctL5Srqnz3OQn6oXxgfQ6t7SiNQ5uuFPoJIKjglqezwJUSJzjeIZAXtHDJeY8tyrteDfiLNBaeVEQyDz+y0ZG+RpxP2kMtV1qU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>8Mr1ssbcqs2nJwG9iOTsNE3dv5+obVfou3wEbiC7aP2BHOrWVGlwzaWTKliPMKoSVLiKGDcTLLDZxUw837RWg5sFWlV1e4qMuBze95AR2HSIXAIy+CKMhiVhT/oT/ls1qJlT4PMfZeFe4Br+Vzy1zAIa45K2aqzNrsnuWmqYBoU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b06e02bf104d6a1bf8b5f4d194361e7769c30ca23c93717c989ff2e783264f78" Description="" Url=""><as:assemblyIdentity name="UDPChatServerForm.exe" version="1.0.0.1" publicKeyToken="75966c6e8a0b31fa" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-PC3R58V\Vincent</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>gFZPNdzJBnvpo7DbMVL/XGjPi1izl3GNVa31RW0JGGM=</DigestValue></Reference></SignedInfo><SignatureValue>INd7/GGN0ruVT3HAnXuqSgqVgLsdP01ADHR2ym3vcnYuNTGSoiwv+Z2wuyJa/B8WFPS+m7X0kgMxIEOSpz7hwelOA4XL4osrP6N6VpxYCCvWJbCY0GFwK0Zr4UoLLLs6m6xsMARRjOhRhH2xibfpRvszowTst6/1TC/gMgW4AvI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8Mr1ssbcqs2nJwG9iOTsNE3dv5+obVfou3wEbiC7aP2BHOrWVGlwzaWTKliPMKoSVLiKGDcTLLDZxUw837RWg5sFWlV1e4qMuBze95AR2HSIXAIy+CKMhiVhT/oT/ls1qJlT4PMfZeFe4Br+Vzy1zAIa45K2aqzNrsnuWmqYBoU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB9TCCAV6gAwIBAgIQf+GZZuXkL7NCghjcrOK37jANBgkqhkiG9w0BAQsFADA5MTcwNQYDVQQDHi4ARABFAFMASwBUAE8AUAAtAFAAQwAzAFIANQA4AFYAXABWAGkAbgBjAGUAbgB0MB4XDTIyMTIwNDA1MDgyNloXDTIzMTIwNDExMDgyNlowOTE3MDUGA1UEAx4uAEQARQBTAEsAVABPAFAALQBQAEMAMwBSADUAOABWAFwAVgBpAG4AYwBlAG4AdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA8Mr1ssbcqs2nJwG9iOTsNE3dv5+obVfou3wEbiC7aP2BHOrWVGlwzaWTKliPMKoSVLiKGDcTLLDZxUw837RWg5sFWlV1e4qMuBze95AR2HSIXAIy+CKMhiVhT/oT/ls1qJlT4PMfZeFe4Br+Vzy1zAIa45K2aqzNrsnuWmqYBoUCAwEAATANBgkqhkiG9w0BAQsFAAOBgQCcOQ/fA6DZ8dqpRf4fVKRqI4Z9A5hEMt2bTvP4wwsT/OzbJtkZC5NkKZd5GHigM4bdZnGYswTP3c4046YsRsA472md1JMza0n6C5r6bp28pJ85HrZDJLgLnz3r62+eZIjucfpq5qyu78Ru2x6cnmzsr8CqjtwGIY/wgGeTkgbj+A==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
