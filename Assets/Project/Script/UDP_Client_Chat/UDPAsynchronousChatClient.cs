@@ -119,8 +119,8 @@ namespace UDP_Asynchronous_Chat
 
             if ((e.UserToken as ChatPacket).PacketType == PACKET_TYPE.DISCOVERY)
             {
-                //ReceiveTextFromServer(expectedValue: "<CONFIRM>", IPEPReceiverLocal: mIPEPLocal);
-                init();
+                ReceiveTextFromServer(expectedValue: "<CONFIRM>", IPEPReceiverLocal: mIPEPLocal);
+                //init();
             }
         }
 

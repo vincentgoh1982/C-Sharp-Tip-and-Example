@@ -16,6 +16,7 @@ namespace UDP_Asynchronous_Chat
         public TMP_InputField tbConsole;
         public TMP_InputField tbBroadcastText;
         public TMP_InputField tbMessage;
+        private string updateText;
 
         public void buttonUpdate()
         {
@@ -47,15 +48,14 @@ namespace UDP_Asynchronous_Chat
 
         private void chatClient_PrintString(object sender, PrintStringEventArgs e)
         {
-            Action<string> print = PrintToTextBox;
-            tbConsole.text += $"{Environment.NewLine}{DateTime.Now} - {e.MessageToPrint}";
+            updateText += $"{Environment.NewLine}{DateTime.Now} - {e.MessageToPrint}";
 
-            //tbConsole.Text +=$"{Environment.NewLine}{DateTime.Now} - {e.MessageToPrint}"
         }
 
-        private void PrintToTextBox(string stringToPrint)
+        private void Update()
         {
-            tbConsole.text += $"{Environment.NewLine}{DateTime.Now} - {stringToPrint}";
+            tbConsole.text = updateText;
         }
+
     }
 }
