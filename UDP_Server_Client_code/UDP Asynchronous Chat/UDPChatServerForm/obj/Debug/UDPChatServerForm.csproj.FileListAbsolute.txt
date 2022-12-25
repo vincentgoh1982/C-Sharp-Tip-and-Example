@@ -1,0 +1,15 @@
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\UDPChatServerForm.exe.config
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\UDPChatServerForm.exe
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\UDPChatServerForm.pdb
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\UDP Asynchronous Chat.dll
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\UDP Asynchronous Chat.pdb
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.csprojAssemblyReference.cache
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.Properties.Resources.resources
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.csproj.GenerateResource.cache
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.csproj.CoreCompileInputs.cache
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.csproj.CopyComplete
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.exe
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.pdb
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\obj\Debug\UDPChatServerForm.Form1.resources
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\Newtonsoft.Json.dll
+E:\UDP_Network\UDP Asynchronous Chat\UDPChatServerForm\bin\Debug\Newtonsoft.Json.xml

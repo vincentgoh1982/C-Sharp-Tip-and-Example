@@ -1,0 +1,19 @@
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDPChatClientForm.exe.config
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDPChatClientForm.exe
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDPChatClientForm.pdb
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDP Asynchronous Chat.dll
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\Newtonsoft.Json.dll
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDP Asynchronous Chat.pdb
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\Newtonsoft.Json.xml
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.csprojAssemblyReference.cache
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDP_Chat_Client_Form.Form1.resources
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.Properties.Resources.resources
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.csproj.GenerateResource.cache
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.csproj.CoreCompileInputs.cache
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.csproj.CopyComplete
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.exe
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.pdb
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDPChatClientForm.exe.manifest
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\bin\Release\UDPChatClientForm.application
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.exe.manifest
+E:\UDP_Network\UDPChatClientForm\UDPChatClientForm\obj\Release\UDPChatClientForm.application
