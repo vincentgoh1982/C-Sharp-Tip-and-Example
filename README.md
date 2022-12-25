@@ -21,7 +21,26 @@
 - [Unlock all the extra CPU power](#unlock-all-the-extra-cpu-power)
 - [Link all material to common material](#link-all-material-to-common-material)
 - [Serilog](#serilog)
+- [UDP](#udp-network)
 
+---
+## UDP Network
+
+### Description: 
+UDP continues to be a staple for online operations. This is because it is ideal for real-time data transmissions, where the loss of a few packets does not matter. TCP will take cognizance if a single packet is lost. It will restart the connection and retransmit the data, which will freeze the game. 
+
+![Image of UDP Interface](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/UDP.PNG)
+
+### Description:
+Link: | Description:
+------------ | -------------
+[ChatPacket.css](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/ChatPacket.cs)|ChatPacket is a model class which added public properties for PACKET_TYPE and message.
+[PrintStringEventArgs.c](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/PrintStringEventArgs.cs)|PrintStringEventArgs is an event handler which used to update messages to the UI.
+[UDPAsynchronousChatClient.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/UDPAsynchronousChatClient.cs)|UDPAsynchronousChatClient is an asynchronous(non blocking) udp controller which the application is not block during the network IO and it will stays responsive for all messages from different users.
+[UDPChatGeneral.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/UDPChatGeneral.cs)|UDPChatGeneral check the eventhandler.
+[UDPInteractiveBtn.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/UDPInteractiveBtn.cs)|Unity interface button and text.
+[UDP_Server_Client_code folder](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/tree/main/UDP_Server_Client_code)|Visual studio code for client and server. 
+[Publish_UDP_Server folder](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/tree/main/Publish_UDP_Server)|Published UDP Server application for testing.
 ---
 ## Serilog
 
