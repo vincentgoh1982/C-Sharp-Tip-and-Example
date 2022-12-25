@@ -39,7 +39,8 @@ Link: | Description:
 [UDPAsynchronousChatClient.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/UDPAsynchronousChatClient.cs)|UDPAsynchronousChatClient is an asynchronous(non blocking) udp controller which the application is not block during the network IO and it will stays responsive for all messages from different users.
 [UDPChatGeneral.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/UDPChatGeneral.cs)|UDPChatGeneral check the eventhandler.
 [UDPInteractiveBtn.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/UDP_Client_Chat/UDPInteractiveBtn.cs)|Unity interface button and text.
-
+[UDP_Server_Client_code folder](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/tree/main/UDP_Server_Client_code)|Visual studio code for client and server. 
+[Publish_UDP_Server folder](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/tree/main/Publish_UDP_Server)|Published UDP Server application for testing.
 ---
 ## Serilog
 
