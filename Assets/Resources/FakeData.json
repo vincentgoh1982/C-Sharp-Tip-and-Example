@@ -1,0 +1,35 @@
+[
+  {
+    "Name": "V",
+    "Vehicle": "Cube",
+    "PositionX": 0.0,
+    "PositionY": 0.0,
+    "PositionZ": 0.0,
+    "RotationX": 0.0,
+    "RotationY": 0.0,
+    "RotationZ": 0.0,
+    "Alive": true
+  },
+  {
+    "Name": "J",
+    "Vehicle": "Sphere",
+    "PositionX": 0.0,
+    "PositionY": 0.0,
+    "PositionZ": 0.0,
+    "RotationX": 0.0,
+    "RotationY": 0.0,
+    "RotationZ": 0.0,
+    "Alive": false
+  },
+  {
+    "Name": "G",
+    "Vehicle": "Sphere",
+    "PositionX": 0.0,
+    "PositionY": 0.0,
+    "PositionZ": 0.0,
+    "RotationX": 0.0,
+    "RotationY": 0.0,
+    "RotationZ": 0.0,
+    "Alive": true
+  }
+]
