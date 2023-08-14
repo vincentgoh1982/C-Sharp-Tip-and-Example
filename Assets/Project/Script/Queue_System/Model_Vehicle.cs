@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vehicles
+public class VehiclesData
 {
     public string name;
     public string vehicle;
@@ -12,9 +12,10 @@ public class Vehicles
     public float rotationX;
     public float rotationY;
     public float rotationZ;
+    public float speed;
     public bool alive;
 
-    public Vehicles(string _name, string _vehicle, float _positionX, float _positionY, float _positionZ, float _rotationX, float _rotationY, float _rotationZ, bool _alive)
+    public VehiclesData(string _name, string _vehicle, float _positionX, float _positionY, float _positionZ, float _rotationX, float _rotationY, float _rotationZ, float _speed, bool _alive)
     {
         name = _name;
         vehicle = _vehicle;
@@ -24,7 +25,10 @@ public class Vehicles
         rotationX = _rotationX;
         rotationY = _rotationY;
         rotationZ = _rotationZ;
+        speed = _speed;
         alive = _alive;
     }
 
 }
+
+

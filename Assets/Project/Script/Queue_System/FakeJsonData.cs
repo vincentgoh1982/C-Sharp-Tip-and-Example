@@ -11,7 +11,7 @@ public class FakeJsonData : MonoBehaviour
 {
     //string jsonFile ="/FakeData.json";
 
-    public delegate void FakeDataSendDelegate(Vehicles vehicles);
+    public delegate void FakeDataSendDelegate(VehiclesData vehicles);
     public static FakeDataSendDelegate fakeDataSendDelegate;
 
     [Button]
@@ -23,18 +23,18 @@ public class FakeJsonData : MonoBehaviour
         TextAsset FakeDataText = Resources.Load("FakeData") as TextAsset;
         string jsonString = FakeDataText.text;
         //Debug.Log(jsonString);
-        List<Vehicles> vehicles = JsonConvert.DeserializeObject<List<Vehicles>>(jsonString);
+        List<VehiclesData> vehicles = JsonConvert.DeserializeObject<List<VehiclesData>>(jsonString);
         
-        foreach(Vehicles vehicle in vehicles)
+        foreach(VehiclesData vehicle in vehicles)
         {
             ShowListOfVehicles(vehicle);
         }
     }
 
-    private void ShowListOfVehicles(Vehicles vehicle)
+    private void ShowListOfVehicles(VehiclesData vehicle)
     {
-        Vehicles newVehicle = new Vehicles(vehicle.name, vehicle.vehicle, vehicle.positionX, vehicle.positionY,
-                vehicle.positionZ, vehicle.rotationX, vehicle.rotationY, vehicle.rotationZ, vehicle.alive);
+        VehiclesData newVehicle = new VehiclesData(vehicle.name, vehicle.vehicle, vehicle.positionX, vehicle.positionY,
+                vehicle.positionZ, vehicle.rotationX, vehicle.rotationY, vehicle.rotationZ, vehicle.speed, vehicle.alive);
         //Debug.Log(newVehicle.name);
         fakeDataSendDelegate?.Invoke(newVehicle);
     }

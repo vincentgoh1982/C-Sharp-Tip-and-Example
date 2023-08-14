@@ -2,11 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Queue_system : MonoBehaviour
 {
-    private SortedDictionary<string, Vehicles> vehiclesObjectsList;
+    private SortedDictionary<string, GameObject> existingVehicleList = new SortedDictionary<string, GameObject>();
+    
     private Queue<ActionData> pendingActions = new Queue<ActionData>();
+
+    public List<AssetReference> assetReferences = new List<AssetReference>();
 
     struct ActionData
     {
@@ -17,9 +22,9 @@ public class Queue_system : MonoBehaviour
             Removed
         };
         public Type type;
-        public Vehicles vehiclesData;
+        public VehiclesData vehiclesData;
 
-        public ActionData(Type type, Vehicles vehiclesData) : this()
+        public ActionData(Type type, VehiclesData vehiclesData) : this()
         {
             this.type = type;
             this.vehiclesData = vehiclesData;
@@ -28,22 +33,43 @@ public class Queue_system : MonoBehaviour
 
     void Start()
     {
-        vehiclesObjectsList = new SortedDictionary<string, Vehicles>();
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
+        for(int i = 0; i < assetReferences.Count; i++ )
+        {
+            SetAssetInsideScene(i);
+        }
     }
     private void OnDestroy()=>FakeJsonData.fakeDataSendDelegate -= ReceiveData;
 
-
-    private void ReceiveData(Vehicles vehicle)
+    public void SetAssetInsideScene(int vehiclesIndex)
     {
-        if(!vehiclesObjectsList.ContainsKey(vehicle.name))
+        AsyncOperationHandle<GameObject> vehicleHandle = assetReferences[vehiclesIndex].LoadAssetAsync<GameObject>();
+        vehicleHandle.Completed += HandleVehicleLoadComplete;
+    }
+
+    private void HandleVehicleLoadComplete(AsyncOperationHandle<GameObject> handle)
+    {
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            GameObject newGameobj = handle.Result;
+            existingVehicleList.Add(newGameobj.name, newGameobj);
+        }
+        else
+        {
+            Debug.LogError("Failed to load gameobject: " + handle.OperationException);
+        }
+    }
+
+    private void ReceiveData(VehiclesData vehicle)
+    {
+        if(!existingVehicleList.ContainsKey(vehicle.name))
         {
             lock (pendingActions)
             {
                 pendingActions.Enqueue(new ActionData(ActionData.Type.Added, vehicle));
             }
         }
-        else if (vehiclesObjectsList.ContainsKey(vehicle.name))
+        else if (existingVehicleList.ContainsKey(vehicle.name))
         { 
             if(vehicle.alive)
             {
@@ -66,34 +92,52 @@ public class Queue_system : MonoBehaviour
                 if (action.type == ActionData.Type.Added)
                 {
                     Debug.Log($"Added: {action.vehiclesData.name}");
-                    vehiclesObjectsList.Add(action.vehiclesData.name, action.vehiclesData);
+                    AddNewSubject(action.vehiclesData);
                     //GameObject qrCodeObject = Instantiate(qrCodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                    //qrCodeObject.GetComponent<SpatialGraphNodeTracker>().Id = action.qrCode.SpatialGraphNodeId;
-                    //qrCodeObject.GetComponent<QRCode>().qrCode = action.qrCode;
-                    //qrCodesObjectsList.Add(action.qrCode.Id, qrCodeObject);
+
                 }
                 else if (action.type == ActionData.Type.Updated)
                 {
                     Debug.Log($"Updated: {action.vehiclesData.name}");
-                    //if (!qrCodesObjectsList.ContainsKey(action.qrCode.Id))
-                    //{
-                    //    GameObject qrCodeObject = Instantiate(qrCodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                    //    qrCodeObject.GetComponent<SpatialGraphNodeTracker>().Id = action.qrCode.SpatialGraphNodeId;
-                    //    qrCodeObject.GetComponent<QRCode>().qrCode = action.qrCode;
-                    //    qrCodesObjectsList.Add(action.qrCode.Id, qrCodeObject);
-                    //}
+                    UpdateVehicle(action.vehiclesData);
+
                 }
                 else if (action.type == ActionData.Type.Removed)
                 {
-                    if (vehiclesObjectsList.ContainsKey(action.vehiclesData.name))
+                    if (existingVehicleList.ContainsKey(action.vehiclesData.name))
                     {
                         Debug.Log($"Removed: {action.vehiclesData.name}");
-                        vehiclesObjectsList.Remove(action.vehiclesData.name);
+                        RemoveSubject(action.vehiclesData.name);
                         //Destroy(qrCodesObjectsList[action.qrCode.Id]);
                         //qrCodesObjectsList.Remove(action.qrCode.Id);
                     }
                 }
             }
+        }
+    }
+
+    private void UpdateVehicle(VehiclesData vehiclesData)
+    {
+        if (existingVehicleList.ContainsKey(vehiclesData.name))
+        {
+            Vehicle_Movement vehicle_Movement = existingVehicleList[vehiclesData.name].GetComponent<Vehicle_Movement>();
+            Vector3 vector3 = new Vector3(vehiclesData.positionX, vehiclesData.positionY, vehiclesData.positionZ);
+            vehicle_Movement.AddNewPosition(vector3, vehiclesData.speed);
+        }
+    }
+
+    private void RemoveSubject(string name)
+    {
+        existingVehicleList.Remove(name);
+    }
+
+    private void AddNewSubject(VehiclesData vehicle)
+    {
+        if(existingVehicleList.ContainsKey(vehicle.vehicle))
+        {
+            GameObject newVehicle = Instantiate(existingVehicleList[vehicle.vehicle], new Vector3(0, 0, 0), Quaternion.identity);
+            existingVehicleList.Add(vehicle.name, newVehicle);
+            newVehicle.AddComponent<Vehicle_Movement>();
         }
     }
 
