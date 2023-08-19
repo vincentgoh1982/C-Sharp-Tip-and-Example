@@ -150,6 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778f27bd5a39c1640828792b3d4d0d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JsonFilesList:
+  - FakeData1
+  - FakeData2
+  - FakeData3
 --- !u!4 &99386105
 Transform:
   m_ObjectHideFlags: 0

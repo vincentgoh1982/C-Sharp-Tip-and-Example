@@ -8,7 +8,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class Queue_system : MonoBehaviour
 {
     private SortedDictionary<string, GameObject> existingVehicleList = new SortedDictionary<string, GameObject>();
-    
+    private SortedDictionary<string, VehiclesData> addedVehicleList = new SortedDictionary<string, VehiclesData>();
+
     private Queue<ActionData> pendingActions = new Queue<ActionData>();
 
     public List<AssetReference> assetReferences = new List<AssetReference>();
@@ -62,22 +63,29 @@ public class Queue_system : MonoBehaviour
 
     private void ReceiveData(VehiclesData vehicle)
     {
-        if(!existingVehicleList.ContainsKey(vehicle.name))
+        if(!addedVehicleList.ContainsKey(vehicle.name))
         {
             lock (pendingActions)
             {
+                addedVehicleList.Add(vehicle.name, vehicle);
                 pendingActions.Enqueue(new ActionData(ActionData.Type.Added, vehicle));
             }
         }
-        else if (existingVehicleList.ContainsKey(vehicle.name))
+        else if (addedVehicleList.ContainsKey(vehicle.name))
         { 
             if(vehicle.alive)
             {
-                pendingActions.Enqueue(new ActionData(ActionData.Type.Updated, vehicle));
+                lock (pendingActions)
+                {
+                    pendingActions.Enqueue(new ActionData(ActionData.Type.Updated, vehicle));
+                }
             }
             else
             {
-                pendingActions.Enqueue(new ActionData(ActionData.Type.Removed, vehicle));
+                lock (pendingActions)
+                {
+                    pendingActions.Enqueue(new ActionData(ActionData.Type.Removed, vehicle));
+                }
             }
         }
     }

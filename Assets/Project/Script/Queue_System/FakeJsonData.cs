@@ -14,13 +14,35 @@ public class FakeJsonData : MonoBehaviour
     public delegate void FakeDataSendDelegate(VehiclesData vehicles);
     public static FakeDataSendDelegate fakeDataSendDelegate;
 
+    public List<string> JsonFilesList = new List<string>();
+
+    [Button]
+    public void SendAllData()
+    {
+        foreach(string jsonFile in JsonFilesList)
+        {
+            StartCoroutine(SendAllData(jsonFile));
+        }
+    }
+
+    private IEnumerator SendAllData(string jsonFile)
+    {
+        yield return new WaitForSeconds(1.0f);
+        Data(jsonFile);
+    }
+
     [Button]
     public void SendData()
+    {
+        Data("FakeData");
+    }
+
+    private void Data(string jsonDataName)
     {
         //string pathJson = Application.persistentDataPath + jsonFile;
         //string lines = System.IO.File.ReadAllText(pathJson);
         //List<Vehicle> vehicles = JsonConvert.DeserializeObject<List<Vehicle>>(lines);
-        TextAsset FakeDataText = Resources.Load("FakeData") as TextAsset;
+        TextAsset FakeDataText = Resources.Load(jsonDataName) as TextAsset;
         string jsonString = FakeDataText.text;
         //Debug.Log(jsonString);
         List<VehiclesData> vehicles = JsonConvert.DeserializeObject<List<VehiclesData>>(jsonString);
