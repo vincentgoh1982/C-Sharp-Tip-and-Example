@@ -130,6 +130,7 @@ public class Queue_system : MonoBehaviour
         {
             Vehicle_Movement vehicle_Movement = existingVehicleList[vehiclesData.name].GetComponent<Vehicle_Movement>();
             Vector3 vector3 = new Vector3(vehiclesData.positionX, vehiclesData.positionY, vehiclesData.positionZ);
+            Debug.Log($"UpdateVehicle: {vehiclesData.name}");
             vehicle_Movement.AddNewPosition(vector3, vehiclesData.speed);
         }
     }
