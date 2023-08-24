@@ -1,35 +1,38 @@
 [
   {
     "Name": "V",
-    "Vehicle": "Cube",
+    "Vehicle": "miniBus_vehicle",
     "PositionX": 0.0,
     "PositionY": 0.0,
     "PositionZ": 0.0,
     "RotationX": 0.0,
     "RotationY": 0.0,
     "RotationZ": 0.0,
+    "Speed": 1.0,
     "Alive": true
   },
   {
     "Name": "J",
-    "Vehicle": "Sphere",
+    "Vehicle": "miniBus_vehicle",
     "PositionX": 0.0,
     "PositionY": 0.0,
     "PositionZ": 0.0,
     "RotationX": 0.0,
     "RotationY": 0.0,
     "RotationZ": 0.0,
+    "Speed": 1.0,
     "Alive": false
   },
   {
     "Name": "G",
-    "Vehicle": "Sphere",
+    "Vehicle": "miniBus_vehicle",
     "PositionX": 0.0,
     "PositionY": 0.0,
     "PositionZ": 0.0,
     "RotationX": 0.0,
     "RotationY": 0.0,
     "RotationZ": 0.0,
+    "Speed": 100.0,
     "Alive": true
   }
 ]

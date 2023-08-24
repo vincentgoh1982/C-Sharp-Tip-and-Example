@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "A",
+    "Vehicle": "miniBus_vehicle",
+    "PositionX": 5.0,
+    "PositionY": 0.0,
+    "PositionZ": 0.0,
+    "RotationX": 0.0,
+    "RotationY": 0.0,
+    "RotationZ": 0.0,
+    "Speed": 100,
+    "Alive": true
+  }
+]
