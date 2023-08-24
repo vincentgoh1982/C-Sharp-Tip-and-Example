@@ -10,6 +10,7 @@ public class Queue_system : MonoBehaviour
     private SortedDictionary<string, GameObject> existingVehicleList = new SortedDictionary<string, GameObject>();
     private SortedDictionary<string, VehiclesData> addedVehicleList = new SortedDictionary<string, VehiclesData>();
 
+    private GameObject parentVehiclesGrp;
     private Queue<ActionData> pendingActions = new Queue<ActionData>();
 
     public List<AssetReference> assetReferences = new List<AssetReference>();
@@ -35,7 +36,8 @@ public class Queue_system : MonoBehaviour
     void Start()
     {
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
-        for(int i = 0; i < assetReferences.Count; i++ )
+        parentVehiclesGrp = new GameObject("VehiclesGrp");
+        for (int i = 0; i < assetReferences.Count; i++ )
         {
             SetAssetInsideScene(i);
         }
@@ -53,6 +55,7 @@ public class Queue_system : MonoBehaviour
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             GameObject newGameobj = handle.Result;
+            Debug.Log($"HandleVehicleLoadComplete: {newGameobj.name}");
             existingVehicleList.Add(newGameobj.name, newGameobj);
         }
         else
@@ -116,8 +119,6 @@ public class Queue_system : MonoBehaviour
                     {
                         Debug.Log($"Removed: {action.vehiclesData.name}");
                         RemoveSubject(action.vehiclesData.name);
-                        //Destroy(qrCodesObjectsList[action.qrCode.Id]);
-                        //qrCodesObjectsList.Remove(action.qrCode.Id);
                     }
                 }
             }
@@ -144,7 +145,8 @@ public class Queue_system : MonoBehaviour
     {
         if(existingVehicleList.ContainsKey(vehicle.vehicle))
         {
-            GameObject newVehicle = Instantiate(existingVehicleList[vehicle.vehicle], new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject newVehicle = Instantiate(existingVehicleList[vehicle.vehicle], new Vector3(vehicle.positionX, vehicle.positionY, vehicle.positionZ), Quaternion.Euler(vehicle.rotationX, 
+                vehicle.rotationY, vehicle.rotationZ));
             existingVehicleList.Add(vehicle.name, newVehicle);
             newVehicle.AddComponent<Vehicle_Movement>();
         }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class VehiclesData
+﻿public class VehiclesData
 {
     public string name;
     public string vehicle;
@@ -28,7 +24,7 @@ public class VehiclesData
         speed = _speed;
         alive = _alive;
     }
-
 }
+
 
 
