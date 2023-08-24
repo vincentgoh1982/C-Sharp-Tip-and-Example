@@ -7,13 +7,23 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Queue_system : MonoBehaviour
 {
+    [Serializable]
+    public struct VehiclesStats
+    {
+        public AssetReference assetReferenceVehicle;
+        public int numberOfVehicle;
+        public string NameVehicle;
+    }
+
+    [SerializeField]
+    private List<VehiclesStats> stats = new List<VehiclesStats>();
+
+    private SortedDictionary<string, GameObject> vehiclesGrp = new SortedDictionary<string, GameObject>();
+
     private SortedDictionary<string, GameObject> existingVehicleList = new SortedDictionary<string, GameObject>();
     private SortedDictionary<string, VehiclesData> addedVehicleList = new SortedDictionary<string, VehiclesData>();
 
-    private GameObject parentVehiclesGrp;
     private Queue<ActionData> pendingActions = new Queue<ActionData>();
-
-    public List<AssetReference> assetReferences = new List<AssetReference>();
 
     struct ActionData
     {
@@ -36,17 +46,40 @@ public class Queue_system : MonoBehaviour
     void Start()
     {
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
-        parentVehiclesGrp = new GameObject("VehiclesGrp");
-        for (int i = 0; i < assetReferences.Count; i++ )
+
+        for (int i = 0; i < stats.Count; i++ )
         {
             SetAssetInsideScene(i);
         }
+
     }
+
+    private void CreateVehiclePooling(string newVehicle)
+    {
+        for (int i = 0; i < stats.Count; i++)
+        {
+            if(stats[i].NameVehicle == newVehicle)
+            {
+                GameObject parentVehiclesGrp = new GameObject(newVehicle);
+                vehiclesGrp.Add(newVehicle, parentVehiclesGrp);
+
+                for (int j = 0; j < stats[i].numberOfVehicle; j++)
+                {
+                    if (existingVehicleList.ContainsKey(stats[i].NameVehicle))
+                    {
+                        GameObject newGameObj = Instantiate(existingVehicleList[stats[i].NameVehicle]);
+                        newGameObj.transform.SetParent(parentVehiclesGrp.transform);
+                    }
+                }
+            }
+        }
+    }
+
     private void OnDestroy()=>FakeJsonData.fakeDataSendDelegate -= ReceiveData;
 
     public void SetAssetInsideScene(int vehiclesIndex)
     {
-        AsyncOperationHandle<GameObject> vehicleHandle = assetReferences[vehiclesIndex].LoadAssetAsync<GameObject>();
+        AsyncOperationHandle<GameObject> vehicleHandle = stats[vehiclesIndex].assetReferenceVehicle.LoadAssetAsync<GameObject>();
         vehicleHandle.Completed += HandleVehicleLoadComplete;
     }
 
@@ -57,6 +90,7 @@ public class Queue_system : MonoBehaviour
             GameObject newGameobj = handle.Result;
             Debug.Log($"HandleVehicleLoadComplete: {newGameobj.name}");
             existingVehicleList.Add(newGameobj.name, newGameobj);
+            CreateVehiclePooling(newGameobj.name);
         }
         else
         {
@@ -103,6 +137,10 @@ public class Queue_system : MonoBehaviour
                 if (action.type == ActionData.Type.Added)
                 {
                     Debug.Log($"Added: {action.vehiclesData.name}");
+                    if(vehiclesGrp.ContainsKey(action.vehiclesData.name))
+                    {
+
+                    }
                     AddNewSubject(action.vehiclesData);
                     //GameObject qrCodeObject = Instantiate(qrCodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
