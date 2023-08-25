@@ -21,6 +21,8 @@ public class Queue_system : MonoBehaviour
 
     private Queue<ActionData> pendingActions = new Queue<ActionData>();
 
+    public int numberOfVehicle;
+
     struct ActionData
     {
         public enum Type
@@ -142,7 +144,7 @@ public class Queue_system : MonoBehaviour
                     if (ExistingVehiclesList.ContainsKey(action.vehiclesData.name))
                     {
                         Debug.Log($"Removed: {action.vehiclesData.name}");
-                        RemoveSubject(action.vehiclesData.name);
+                        RemoveSubject(action.vehiclesData);
                     }
                 }
             }
@@ -172,10 +174,13 @@ public class Queue_system : MonoBehaviour
         }
     }
 
-    private void RemoveSubject(string name)
+    private void RemoveSubject(VehiclesData vehiclesData)
     {
-        compareVehicle.Remove(name);
-        ExistingVehiclesList.Remove(name);
+        ExistingVehiclesList[vehiclesData.name].transform.SetParent(vehiclesGrp[vehiclesData.vehicle].vehicleGrp.transform);
+        ExistingVehiclesList[vehiclesData.name].name = vehiclesGrp[vehiclesData.vehicle].name;
+        ExistingVehiclesList[vehiclesData.name].SetActive(false);
+        compareVehicle.Remove(vehiclesData.name);
+        ExistingVehiclesList.Remove(vehiclesData.name);
     }
 
     // Update is called once per frame
@@ -187,10 +192,10 @@ public class Queue_system : MonoBehaviour
     private void CreateVehiclePooling(GameObject prefabInstance, string name)
     {
         GameObject parentVehiclesGrp = new GameObject(name);
-        VehicleGrp newVehicleGrp = new VehicleGrp(name, parentVehiclesGrp, 2);
+        VehicleGrp newVehicleGrp = new VehicleGrp(name, parentVehiclesGrp);
         vehiclesGrp.Add(name, newVehicleGrp);
 
-        for (int j = 0; j < newVehicleGrp.numberOfVehicles; j++)
+        for (int j = 0; j < numberOfVehicle; j++)
         {
             GameObject newGameObj = Instantiate(prefabInstance);
             newGameObj.transform.SetParent(parentVehiclesGrp.transform);
@@ -213,7 +218,7 @@ public class Queue_system : MonoBehaviour
             Debug.Log($"Handle_ReloadCompleted: {reloadedAsset.name}");
             GameObject newAsset = Instantiate(reloadedAsset);
             newAsset.transform.SetParent(vehiclesGrp[reloadedAsset.name].vehicleGrp.transform);
-
+            newAsset.SetActive(false);
             // Do something with the reloaded asset.
         }
     }

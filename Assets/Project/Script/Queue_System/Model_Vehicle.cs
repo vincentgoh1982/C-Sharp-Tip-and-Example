@@ -32,13 +32,11 @@ public class VehicleGrp
 {
     public string name;
     public GameObject vehicleGrp;
-    public int numberOfVehicles;
 
-    public VehicleGrp(string _name, GameObject _vehicleGrp, int _numberOfVehicles)
+    public VehicleGrp(string _name, GameObject _vehicleGrp)
     {
         name = _name;
         vehicleGrp = _vehicleGrp;
-        numberOfVehicles = _numberOfVehicles;
     }
 }
 
