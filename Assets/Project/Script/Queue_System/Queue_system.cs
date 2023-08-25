@@ -7,21 +7,17 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Queue_system : MonoBehaviour
 {
-    [Serializable]
-    public struct VehiclesStats
-    {
-        public AssetReference assetReferenceVehicle;
-        public int numberOfVehicle;
-        public string NameVehicle;
-    }
+    [SerializeField] 
+    private List<AssetReference> prefabReferences = new List<AssetReference>();
 
-    [SerializeField]
-    private List<VehiclesStats> stats = new List<VehiclesStats>();
+    //Dictionary of a group catergory of vehicle
+    private SortedDictionary<string, VehicleGrp> vehiclesGrp = new SortedDictionary<string, VehicleGrp>();
+    //Add all addressable vehicle into dictionary for create new vehicle when the group is empty
+    private SortedDictionary<string, AssetReference> AddressableVehiclesDictionary = new SortedDictionary<string, AssetReference>();
+    //Add new name of the character from the data
+    private SortedDictionary<string, GameObject> ExistingVehiclesList = new SortedDictionary<string, GameObject>();
 
-    private SortedDictionary<string, GameObject> vehiclesGrp = new SortedDictionary<string, GameObject>();
-
-    private SortedDictionary<string, GameObject> existingVehicleList = new SortedDictionary<string, GameObject>();
-    private SortedDictionary<string, VehiclesData> addedVehicleList = new SortedDictionary<string, VehiclesData>();
+    private List<string> compareVehicle = new List<string>();
 
     private Queue<ActionData> pendingActions = new Queue<ActionData>();
 
@@ -46,69 +42,48 @@ public class Queue_system : MonoBehaviour
     void Start()
     {
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
-
-        for (int i = 0; i < stats.Count; i++ )
-        {
-            SetAssetInsideScene(i);
-        }
-
-    }
-
-    private void CreateVehiclePooling(string newVehicle)
-    {
-        for (int i = 0; i < stats.Count; i++)
-        {
-            if(stats[i].NameVehicle == newVehicle)
-            {
-                GameObject parentVehiclesGrp = new GameObject(newVehicle);
-                vehiclesGrp.Add(newVehicle, parentVehiclesGrp);
-
-                for (int j = 0; j < stats[i].numberOfVehicle; j++)
-                {
-                    if (existingVehicleList.ContainsKey(stats[i].NameVehicle))
-                    {
-                        GameObject newGameObj = Instantiate(existingVehicleList[stats[i].NameVehicle]);
-                        newGameObj.transform.SetParent(parentVehiclesGrp.transform);
-                    }
-                }
-            }
-        }
+        
+        LoadPrefabsAsync();
     }
 
     private void OnDestroy()=>FakeJsonData.fakeDataSendDelegate -= ReceiveData;
 
-    public void SetAssetInsideScene(int vehiclesIndex)
+    private void LoadPrefabsAsync()
     {
-        AsyncOperationHandle<GameObject> vehicleHandle = stats[vehiclesIndex].assetReferenceVehicle.LoadAssetAsync<GameObject>();
-        vehicleHandle.Completed += HandleVehicleLoadComplete;
+        foreach (AssetReference prefabReference in prefabReferences)
+        {
+            AsyncOperationHandle<GameObject> handle = prefabReference.LoadAssetAsync<GameObject>();
+            handle.Completed += (completedHandle) => Handle_LoadCompleted(completedHandle, prefabReference);
+        }
     }
 
-    private void HandleVehicleLoadComplete(AsyncOperationHandle<GameObject> handle)
+    private void Handle_LoadCompleted(AsyncOperationHandle<GameObject> handle, AssetReference prefabReference)
     {
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            GameObject newGameobj = handle.Result;
-            Debug.Log($"HandleVehicleLoadComplete: {newGameobj.name}");
-            existingVehicleList.Add(newGameobj.name, newGameobj);
-            CreateVehiclePooling(newGameobj.name);
+            GameObject prefabInstance = handle.Result;
+            AddressableVehiclesDictionary.Add(prefabReference.Asset.name, prefabReference);
+            // Now you can use the loaded prefabInstance in your scene.
+            Debug.Log($"Loaded prefab:  {prefabReference.RuntimeKey} , {prefabReference.Asset.name}");
+            CreateVehiclePooling(prefabInstance, prefabReference.Asset.name);
         }
         else
         {
-            Debug.LogError("Failed to load gameobject: " + handle.OperationException);
+            Debug.LogError("Failed to load prefab: " + prefabReference.RuntimeKey + ". Error: " + handle.OperationException);
         }
     }
 
     private void ReceiveData(VehiclesData vehicle)
     {
-        if(!addedVehicleList.ContainsKey(vehicle.name))
+        if(!compareVehicle.Contains(vehicle.name))
         {
+            compareVehicle.Add(vehicle.name);
             lock (pendingActions)
             {
-                addedVehicleList.Add(vehicle.name, vehicle);
                 pendingActions.Enqueue(new ActionData(ActionData.Type.Added, vehicle));
             }
         }
-        else if (addedVehicleList.ContainsKey(vehicle.name))
+        else if (compareVehicle.Contains(vehicle.name))
         { 
             if(vehicle.alive)
             {
@@ -137,11 +112,22 @@ public class Queue_system : MonoBehaviour
                 if (action.type == ActionData.Type.Added)
                 {
                     Debug.Log($"Added: {action.vehiclesData.name}");
-                    if(vehiclesGrp.ContainsKey(action.vehiclesData.name))
+                    if(vehiclesGrp.ContainsKey(action.vehiclesData.vehicle))
                     {
+                        int childCount = vehiclesGrp[action.vehiclesData.vehicle].vehicleGrp.transform.childCount;
+
+                        if(childCount < 2)
+                        {
+                            if (AddressableVehiclesDictionary.ContainsKey(action.vehiclesData.vehicle))
+                            {
+                                ReloadAsset(AddressableVehiclesDictionary[action.vehiclesData.vehicle]);
+                            }
+                        }
+
+                        GetFromVehicleParent(action.vehiclesData);
 
                     }
-                    AddNewSubject(action.vehiclesData);
+                    
                     //GameObject qrCodeObject = Instantiate(qrCodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
                 }
@@ -153,7 +139,7 @@ public class Queue_system : MonoBehaviour
                 }
                 else if (action.type == ActionData.Type.Removed)
                 {
-                    if (existingVehicleList.ContainsKey(action.vehiclesData.name))
+                    if (ExistingVehiclesList.ContainsKey(action.vehiclesData.name))
                     {
                         Debug.Log($"Removed: {action.vehiclesData.name}");
                         RemoveSubject(action.vehiclesData.name);
@@ -163,11 +149,23 @@ public class Queue_system : MonoBehaviour
         }
     }
 
+    private void GetFromVehicleParent(VehiclesData vehiclesData)
+    {
+        Debug.Log($"GetFromVehicleParent: {vehiclesData.name}");
+        GameObject vehicleParent = vehiclesGrp[vehiclesData.vehicle].vehicleGrp;
+        GameObject childVehicle = vehicleParent.transform.GetChild(0).gameObject;
+        childVehicle.transform.SetParent(null);
+        childVehicle.name = vehiclesData.name;
+        childVehicle.SetActive(true);
+        ExistingVehiclesList.Add(vehiclesData.name, childVehicle);
+
+    }
+
     private void UpdateVehicle(VehiclesData vehiclesData)
     {
-        if (existingVehicleList.ContainsKey(vehiclesData.name))
+        if (ExistingVehiclesList.ContainsKey(vehiclesData.name))
         {
-            Vehicle_Movement vehicle_Movement = existingVehicleList[vehiclesData.name].GetComponent<Vehicle_Movement>();
+            Vehicle_Movement vehicle_Movement = ExistingVehiclesList[vehiclesData.name].gameObject.GetComponent<Vehicle_Movement>();
             Vector3 vector3 = new Vector3(vehiclesData.positionX, vehiclesData.positionY, vehiclesData.positionZ);
             Debug.Log($"UpdateVehicle: {vehiclesData.name}");
             vehicle_Movement.AddNewPosition(vector3, vehiclesData.speed);
@@ -176,18 +174,8 @@ public class Queue_system : MonoBehaviour
 
     private void RemoveSubject(string name)
     {
-        existingVehicleList.Remove(name);
-    }
-
-    private void AddNewSubject(VehiclesData vehicle)
-    {
-        if(existingVehicleList.ContainsKey(vehicle.vehicle))
-        {
-            GameObject newVehicle = Instantiate(existingVehicleList[vehicle.vehicle], new Vector3(vehicle.positionX, vehicle.positionY, vehicle.positionZ), Quaternion.Euler(vehicle.rotationX, 
-                vehicle.rotationY, vehicle.rotationZ));
-            existingVehicleList.Add(vehicle.name, newVehicle);
-            newVehicle.AddComponent<Vehicle_Movement>();
-        }
+        compareVehicle.Remove(name);
+        ExistingVehiclesList.Remove(name);
     }
 
     // Update is called once per frame
@@ -195,4 +183,39 @@ public class Queue_system : MonoBehaviour
     {
         HandleEvents();
     }
+
+    private void CreateVehiclePooling(GameObject prefabInstance, string name)
+    {
+        GameObject parentVehiclesGrp = new GameObject(name);
+        VehicleGrp newVehicleGrp = new VehicleGrp(name, parentVehiclesGrp, 2);
+        vehiclesGrp.Add(name, newVehicleGrp);
+
+        for (int j = 0; j < newVehicleGrp.numberOfVehicles; j++)
+        {
+            GameObject newGameObj = Instantiate(prefabInstance);
+            newGameObj.transform.SetParent(parentVehiclesGrp.transform);
+            newGameObj.AddComponent<Vehicle_Movement>();
+            newGameObj.SetActive(false);
+        }
+    }
+
+    private void ReloadAsset(AssetReference assetReference)
+    {
+        AsyncOperationHandle<GameObject> handle = assetReference.LoadAssetAsync<GameObject>();
+        handle.Completed += Handle_ReloadCompleted;
+    }
+
+    private void Handle_ReloadCompleted(AsyncOperationHandle<GameObject> handle)
+    {
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            GameObject reloadedAsset = handle.Result;
+            Debug.Log($"Handle_ReloadCompleted: {reloadedAsset.name}");
+            GameObject newAsset = Instantiate(reloadedAsset);
+            newAsset.transform.SetParent(vehiclesGrp[reloadedAsset.name].vehicleGrp.transform);
+
+            // Do something with the reloaded asset.
+        }
+    }
+
 }

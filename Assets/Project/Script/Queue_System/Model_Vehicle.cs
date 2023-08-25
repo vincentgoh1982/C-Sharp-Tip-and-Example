@@ -1,4 +1,6 @@
-﻿public class VehiclesData
+﻿using UnityEngine;
+
+public class VehiclesData
 {
     public string name;
     public string vehicle;
@@ -23,6 +25,20 @@
         rotationZ = _rotationZ;
         speed = _speed;
         alive = _alive;
+    }
+}
+
+public class VehicleGrp
+{
+    public string name;
+    public GameObject vehicleGrp;
+    public int numberOfVehicles;
+
+    public VehicleGrp(string _name, GameObject _vehicleGrp, int _numberOfVehicles)
+    {
+        name = _name;
+        vehicleGrp = _vehicleGrp;
+        numberOfVehicles = _numberOfVehicles;
     }
 }
 

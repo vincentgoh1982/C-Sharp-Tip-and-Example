@@ -200,12 +200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604e14cc7f2e9314280976097c673d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats:
-  - assetReferenceVehicle:
-      m_AssetGUID: c6e0db5a8795a8e468200c0859250f23
-      m_SubObjectName: miniBus_vehicle
-    numberOfVehicle: 20
-    NameVehicle: miniBus_vehicle
+  prefabReferences:
+  - m_AssetGUID: 7667ae3a485dcfe4aaf397db6659bf5f
+    m_SubObjectName: 
+  - m_AssetGUID: 7667ae3a485dcfe4aaf397db6659bf5f
+    m_SubObjectName: 
 --- !u!4 &224185907
 Transform:
   m_ObjectHideFlags: 0

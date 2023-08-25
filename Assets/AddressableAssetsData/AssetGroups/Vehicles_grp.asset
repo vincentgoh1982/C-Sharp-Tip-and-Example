@@ -17,7 +17,15 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 1863aec68c2023d43ba28be7da4959ba
   m_SerializeEntries:
-  - m_GUID: 99e6c17dcde5d9a498cc64934060cda8
+  - m_GUID: 38067733e61e6004e8af931ce94c91b1
+    m_Address: tree
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 8282055716289480403, guid: 38067733e61e6004e8af931ce94c91b1,
+      type: 3}
+    m_TargetAsset: {fileID: 8282055716289480403, guid: 38067733e61e6004e8af931ce94c91b1,
+      type: 3}
+  - m_GUID: 7667ae3a485dcfe4aaf397db6659bf5f
     m_Address: miniBus_vehicle
     m_ReadOnly: 0
     m_SerializedLabels: []
