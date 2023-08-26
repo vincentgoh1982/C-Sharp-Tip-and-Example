@@ -157,6 +157,8 @@ MonoBehaviour:
   - FakeData4
   - FakeData5
   - FakeData6
+  - FakeData7
+  - FakeData8
 --- !u!4 &99386105
 Transform:
   m_ObjectHideFlags: 0
@@ -200,12 +202,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604e14cc7f2e9314280976097c673d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numOfVehiclesGenerated:
+  - AssetReferenceName: miniBus_vehicle
+    numberOfVehicle: 2
+  - AssetReferenceName: New Mtree
+    numberOfVehicle: 2
   prefabReferences:
   - m_AssetGUID: 7667ae3a485dcfe4aaf397db6659bf5f
     m_SubObjectName: 
   - m_AssetGUID: 9f45b9dae0ae0c8408fb5ed9718b04df
     m_SubObjectName: 
-  numberOfVehicle: 2
 --- !u!4 &224185907
 Transform:
   m_ObjectHideFlags: 0
