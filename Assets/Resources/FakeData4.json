@@ -8,7 +8,7 @@
     "RotationX": 0.0,
     "RotationY": 0.0,
     "RotationZ": 0.0,
-    "Speed": 100,
+    "Speed": 10,
     "Alive": true
   }
 ]

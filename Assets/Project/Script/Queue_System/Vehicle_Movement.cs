@@ -5,60 +5,55 @@ using UnityEngine;
 
 public class Vehicle_Movement : MonoBehaviour
 {
-    private Queue<Vector3> targetQueue = new Queue<Vector3>();
-    public float speed = 1.0f;
-    private float timeElapsed = 0;
-    public float lerpDuration = 10;
-    private Vector3 previousPosition;
+    private Queue<MoveRequest> positionQueue = new Queue<MoveRequest>();
+    private bool isMoving = false;
 
-    public void AddNewPosition(Vector3 newPosition, float speed)
+    //Enqueues a new target position and starts the movement coroutine if the system is not already moving
+    public void EnqueuePosition(Vector3 newPosition, float speed)
     {
-        this.speed = speed;
+        MoveRequest moveRequest = new MoveRequest(newPosition, speed);
+        positionQueue.Enqueue(moveRequest);
 
-        if (newPosition != previousPosition)
+        if (!isMoving)
         {
-            previousPosition = newPosition;
-            targetQueue.Enqueue(newPosition);
-            //StartMoving();
-            StartCoroutine(MoveRotateVehicle());
-        }
-        else
-        {
-            Debug.Log($"Gameobject's position is similar to the new position: {newPosition}");
+            StartCoroutine(MoveNextPosition());
         }
     }
-
-    private IEnumerator MoveRotateVehicle()
+    //Coroutine takes care of moving to the next position in the queue. It processes positions one by one until the queue is empty.
+    private IEnumerator MoveNextPosition()
     {
-        while (targetQueue.Count > 0)
+        isMoving = true;
+
+        while (positionQueue.Count > 0)
         {
-            Debug.Log($"MoveRotateVehicle: {targetQueue.Count}");
-            var routine = StartCoroutine(MoveVehicle());
-            yield return routine;
-            if(targetQueue.Count > 0)
+            MoveRequest moveRequest = positionQueue.Dequeue();
+            float startTime = Time.time;
+            float journeyLength = Vector3.Distance(transform.position, moveRequest.Direction);
+            float speed = moveRequest.Speed;
+
+            while (transform.position != moveRequest.Direction)
             {
-                timeElapsed = 0;
-                targetQueue.Dequeue();
+                float distanceCovered = (Time.time - startTime) * speed;
+                float fractionOfJourney = distanceCovered / journeyLength;
+
+                transform.position = Vector3.Lerp(transform.position, moveRequest.Direction, fractionOfJourney);
+                yield return null;
             }
         }
+
+        isMoving = false;
     }
 
-    private IEnumerator MoveVehicle()
+    private struct MoveRequest
     {
-        Vector3 targetPosition = targetQueue.Peek();
+        public Vector3 Direction;
+        public float Speed;
 
-        while (timeElapsed < lerpDuration)
+        public MoveRequest(Vector3 direction, float speed)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, timeElapsed / lerpDuration);
-            timeElapsed += Time.deltaTime;
-            yield return new WaitForSeconds(0.1f);
-            Debug.Log($"MoveVehicle: {transform.position} timer: {timeElapsed}");
-
-            if (transform.position == targetPosition)
-            {
-                break;
-            }
-
+            Direction = direction;
+            Speed = speed;
         }
     }
+
 }

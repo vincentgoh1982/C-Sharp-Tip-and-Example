@@ -4,11 +4,11 @@
     "Vehicle": "miniBus_vehicle",
     "PositionX": 5.0,
     "PositionY": 0.0,
-    "PositionZ": 10.0,
+    "PositionZ": 50.0,
     "RotationX": 0.0,
     "RotationY": 0.0,
     "RotationZ": 0.0,
-    "Speed": 100,
+    "Speed": 10,
     "Alive": true
   }
 ]

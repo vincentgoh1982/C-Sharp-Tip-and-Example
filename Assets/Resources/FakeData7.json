@@ -1,10 +1,10 @@
 [
   {
-    "Name": "G",
+    "Name": "A",
     "Vehicle": "miniBus_vehicle",
-    "PositionX": 0.0,
+    "PositionX": 10.0,
     "PositionY": 0.0,
-    "PositionZ": 50.0,
+    "PositionZ": 10.0,
     "RotationX": 0.0,
     "RotationY": 0.0,
     "RotationZ": 0.0,
