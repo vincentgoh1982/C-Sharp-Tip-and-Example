@@ -29,7 +29,7 @@
 
 ### Description: 
 The C# queue is a FIFO queue collection class in the System. Collection namespace. Storing elements in FIFO style (First In, First Out), the C# queue contains elements in precisely the order they were added, with objects added at one end and removed from the opposite end. Addressable enable loading assets on-demand, reducing initial loading times and memory usage. Assets can be updated independently, and only the necessary changes are downloaded, minimizing the size of updates for players. Assets can be hosted remotely, allowing developers to deliver updates without requiring users to download an entire game package. Addressable provide a way to manage asset dependencies, allowing developers to load assets and their associated resources efficiently.
-https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/UDP.PNG)](https://www.linkedin.com/pulse/asset-bundle-vs-addressable-gamecrio/
+(https://www.linkedin.com/pulse/asset-bundle-vs-addressable-gamecrio/
 
 ![Image of Queue](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Queue_system.PNG)
 ![Image of Addressable unity](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Addressable_Group.PNG)
