@@ -22,6 +22,26 @@
 - [Link all material to common material](#link-all-material-to-common-material)
 - [Serilog](#serilog)
 - [UDP](#udp-network)
+- [Queue and Addressable](#queue-and-addressable-unity)
+
+---
+## Queue and Addressable unity
+
+### Description: 
+The C# queue is a FIFO queue collection class in the System. Collection namespace. Storing elements in FIFO style (First In, First Out), the C# queue contains elements in precisely the order they were added, with objects added at one end and removed from the opposite end. Addressable enable loading assets on-demand, reducing initial loading times and memory usage. Assets can be updated independently, and only the necessary changes are downloaded, minimizing the size of updates for players. Assets can be hosted remotely, allowing developers to deliver updates without requiring users to download an entire game package. Addressable provide a way to manage asset dependencies, allowing developers to load assets and their associated resources efficiently.
+https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/UDP.PNG)](https://www.linkedin.com/pulse/asset-bundle-vs-addressable-gamecrio/
+
+![Image of Queue](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Queue_system.PNG)
+![Image of Addressable unity](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Addressable_Group.PNG)
+
+### Description:
+Link: | Description:
+------------ | -------------
+[FakeJsonData.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/FakeJsonData.cs)|FakeJsonData is replicate a server sending json file to the device.
+[Queue_system.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Queue_system.cs)|Manage all the elements or gameobject's action in FIFO style.
+[Vehicle_Movement.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Vehicle_Movement.cs)|Moving gameobject in a queue system (FIFO style).
+[Model_Vehicle.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Model_Vehicle.cs)|Vehicle's properties.
+---
 
 ---
 ## UDP Network
