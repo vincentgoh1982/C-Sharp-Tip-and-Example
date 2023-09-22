@@ -24,8 +24,21 @@
 - [UDP](#udp-network)
 - [Queue and Addressable](#queue-and-addressable-unity)
 - [Script Execution Order](#script-execution-order-unity)
-
+- [Json within Json](#json-within-Json)
 ---
+## Json within Json
+
+### Description: 
+Create Json with a type of animal information and a string of Json inside. The string of json contain different properties of the animal's attribute. One example is the generating the json properties and the other example is to read the json properties.
+
+### Description:
+Link: | Description:
+------------ | -------------
+[GenerateJsonFile.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/JsonWithinJson/GenerateJsonFile.cs)|Generate the json's properties and save it into files.
+[Model_Animal.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/JsonWithinJson/Model_Animal.cs)|Animal's properties class.
+[ReadJsonFile.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/JsonWithinJson/ReadJsonFile.cs)|Read the json's properties from files.
+---
+
 ## Script Execution Order unity
 
 ### Description: 
@@ -34,7 +47,7 @@ Executes the list of script from top to bottom and start individual scripts in a
 ### Description:
 Link: | Description:
 ------------ | -------------
-[BaseScript.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Virtual_Base/BaseScript.cs)|BaseScript inherit from MonoBehaviour so that it can be attached to GameObjects..
+[BaseScript.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Virtual_Base/BaseScript.cs)|BaseScript inherit from MonoBehaviour so that it can be attached to GameObjects.
 [CatScript.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Virtual_Base/CatScript.cs)|CatScript inherit from the BaseScript and override the MonoBehaviourVirtualStart method with their own implementation.
 [DogScript.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Virtual_Base/DogScript.cs)|DogScript inherit from the BaseScript and override the MonoBehaviourVirtualStart method with their own implementation.
 [ScriptManager.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Virtual_Base/ScriptManager.cs)|ScriptManager is a manager script that will handle the loop to start each script.
