@@ -29,7 +29,7 @@
 ## Json within Json
 
 ### Description: 
-Create Json with a type of animal information and a string of Json inside. The string of json contain different properties of the animal's attribute. One example is the generating the json properties and the other example is to read the json properties.
+Create Json with a type of animal information and a string of Json inside. The string of json contain different properties of the animal's attribute. One example is the generating the json which contains json string. The other example is to read the json's object to find the type of animal and convert the json string into object according to the type of animal.
 
 ### Description:
 Link: | Description:
