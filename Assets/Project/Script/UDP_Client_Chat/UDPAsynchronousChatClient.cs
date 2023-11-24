@@ -159,6 +159,11 @@ namespace UDP_Asynchronous_Chat
             {
                 Debug.Log($"Expected token not returned by the server.");
                 OnRaisePrintStringEvent(new PrintStringEventArgs($"Expected token not returned by the server."));
+
+                // When you need to interact with Unity's API
+                UnityMainThreadDispatcher.Enqueue(() => {
+                // Unity API calls or updates to GameObjects go here
+                });
             }
         }
 
