@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class UnityMainThreadDispatcher : MonoBehaviour {
     private static readonly Queue<Action> _executionQueue = new Queue<Action>();
 
