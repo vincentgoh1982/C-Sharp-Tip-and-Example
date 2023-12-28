@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.Initialization;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Queue_system : MonoBehaviour
@@ -16,10 +17,6 @@ public class Queue_system : MonoBehaviour
     }
     [SerializeField]
     private List<NumberOfVehiclesGenerated> numOfVehiclesGenerated = new List<NumberOfVehiclesGenerated>();
-
-    //AssetReference for all the prefab
-    [SerializeField]
-    private List<AssetReference> prefabReferences = new List<AssetReference>();
 
     //Dictionary of a group catergory of vehicle
     private SortedDictionary<string, VehicleGrp> vehiclesGrp = new SortedDictionary<string, VehicleGrp>();
@@ -56,12 +53,17 @@ public class Queue_system : MonoBehaviour
     {
         //Fake date to be receive from server
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
-
+        ClearDependencyCacheForAddressable("vehicles");
         StartCoroutine(AsyncLoadPrefab());
     }
 
     private void OnDestroy()=>FakeJsonData.fakeDataSendDelegate -= ReceiveData;
-    
+
+    public void ClearDependencyCacheForAddressable(string key)
+    {
+        Addressables.ClearDependencyCacheAsync(key);
+    }
+
     /// <summary>
     /// Addressable to read data from the server
     /// </summary>

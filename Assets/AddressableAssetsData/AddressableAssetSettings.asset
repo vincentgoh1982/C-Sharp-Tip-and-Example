@@ -79,7 +79,7 @@ MonoBehaviour:
       - m_Id: c348f6ddaf1fe87418af95d8524905c2
         m_Value: ServerData/[BuildTarget]
       - m_Id: dff69770dcbcb764398e6bb7c99cb343
-        m_Value: http://172.16.1.81:8088/Vehicles/[BuildTarget]
+        m_Value: '{AddressableAmendment.ChangeAddressablesIPAddress.BASE_URL}/[BuildTarget]'
       - m_Id: 8dc7c82ed10c55441ac75852845d01fa
         m_Value: E:/Unity_Project/C-sharp-Tip-Example/Assets
     m_ProfileEntryNames:

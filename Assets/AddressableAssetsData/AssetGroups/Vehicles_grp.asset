@@ -18,21 +18,19 @@ MonoBehaviour:
   m_GUID: 1863aec68c2023d43ba28be7da4959ba
   m_SerializeEntries:
   - m_GUID: 7667ae3a485dcfe4aaf397db6659bf5f
-    m_Address: miniBus
+    m_Address: miniBus_vehicle
     m_ReadOnly: 0
     m_SerializedLabels:
     - vehicles
     - trees
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f45b9dae0ae0c8408fb5ed9718b04df
     m_Address: Mtree
     m_ReadOnly: 0
     m_SerializedLabels:
     - vehicles
     - trees
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 90ced1a1cac854648b2f498932b860c7, type: 2}
   m_SchemaSet:
