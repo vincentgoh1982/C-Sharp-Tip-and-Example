@@ -8,6 +8,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Queue_system : MonoBehaviour
 {
+    private List<object> keys = new List<object>() { "vehicles", "trees" };
     //Define the number of gameobject to be generated for object pooling
     [System.Serializable]
     private struct NumberOfVehiclesGenerated
@@ -53,7 +54,11 @@ public class Queue_system : MonoBehaviour
     {
         //Fake date to be receive from server
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
-        ClearDependencyCacheForAddressable("vehicles");
+        foreach(object key in keys)
+        {
+            ClearDependencyCacheForAddressable(key.ToString());
+        }
+
         StartCoroutine(AsyncLoadPrefab());
     }
 
@@ -72,7 +77,7 @@ public class Queue_system : MonoBehaviour
     private IEnumerator AsyncLoadPrefab()
     {
         AsyncOperationHandle<IList<GameObject>> intersectionWithMultipleKeys =
-            Addressables.LoadAssetsAsync<GameObject>(new List<object>() { "vehicles", "trees" },
+            Addressables.LoadAssetsAsync<GameObject>(keys,
                 obj =>
                 {
                     //Gets called for every loaded asset
