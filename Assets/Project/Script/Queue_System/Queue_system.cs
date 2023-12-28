@@ -24,7 +24,7 @@ public class Queue_system : MonoBehaviour
     //Dictionary of a group catergory of vehicle
     private SortedDictionary<string, VehicleGrp> vehiclesGrp = new SortedDictionary<string, VehicleGrp>();
     //Add all addressable vehicle into dictionary for create new vehicle when the group is empty
-    private SortedDictionary<string, AssetReference> AddressableVehiclesDictionary = new SortedDictionary<string, AssetReference>();
+    private SortedDictionary<string, GameObject> AddressableVehiclesDictionary = new SortedDictionary<string, GameObject>();
     //Add new name of the character from the data and added gameobject to refer
     private SortedDictionary<string, GameObject> vehicleNewNameList = new SortedDictionary<string, GameObject>();
     //Store new name of the character from the data
@@ -51,48 +51,44 @@ public class Queue_system : MonoBehaviour
         }
     }
 
+    [Obsolete]
     void Start()
     {
         //Fake date to be receive from server
         FakeJsonData.fakeDataSendDelegate += ReceiveData;
-       
-        LoadPrefabsAsync();
+
+        StartCoroutine(AsyncLoadPrefab());
     }
 
     private void OnDestroy()=>FakeJsonData.fakeDataSendDelegate -= ReceiveData;
-
+    
     /// <summary>
-    /// Loading all the addressable asset
+    /// Addressable to read data from the server
     /// </summary>
-    private void LoadPrefabsAsync()
+    /// <returns></returns>
+    [Obsolete]
+    private IEnumerator AsyncLoadPrefab()
     {
-        foreach (AssetReference prefabReference in prefabReferences)
+        AsyncOperationHandle<IList<GameObject>> intersectionWithMultipleKeys =
+            Addressables.LoadAssetsAsync<GameObject>(new List<object>() { "vehicles", "trees" },
+                obj =>
+                {
+                    //Gets called for every loaded asset
+                    Debug.Log(obj.name);
+                }, Addressables.MergeMode.Intersection);
+        yield return intersectionWithMultipleKeys;
+        IList<GameObject> multipleKeyResult = intersectionWithMultipleKeys.Result;
+
+        foreach (GameObject keyResult in multipleKeyResult)
         {
-            Debug.Log($"LoadPrefabsAsync");
-            AsyncOperationHandle<GameObject> handle = prefabReference.LoadAssetAsync<GameObject>();
-            handle.Completed += (completedHandle) => Handle_LoadCompleted(completedHandle, prefabReference);
+            AddressableVehiclesDictionary.Add(keyResult.name, keyResult);
+            CreateVehiclePooling(keyResult, keyResult.name);
         }
+
+        //Addressables.Release(intersectionWithMultipleKeys);
     }
 
-    /// <summary>
-    /// Event receive the completion of loading the asset from the addressable group
-    /// </summary>
-    /// <param name="handle"></param>
-    /// <param name="prefabReference"></param>
-    private void Handle_LoadCompleted(AsyncOperationHandle<GameObject> handle, AssetReference prefabReference)
-    {
-        if (handle.Status == AsyncOperationStatus.Succeeded)
-        {
-            GameObject prefabInstance = handle.Result;
-            AddressableVehiclesDictionary.Add(prefabReference.Asset.name, prefabReference);
-            Debug.Log($"Handle_LoadCompleted:  {prefabReference.RuntimeKey} , {prefabReference.Asset.name}");
-            CreateVehiclePooling(prefabInstance, prefabReference.Asset.name);
-        }
-        else
-        {
-            Debug.LogError("Failed to load prefab: " + prefabReference.RuntimeKey + ". Error: " + handle.OperationException);
-        }
-    }
+
     /// <summary>
     /// Event that receive the data from the server
     /// </summary>
@@ -129,7 +125,7 @@ public class Queue_system : MonoBehaviour
         }
     }
     /// <summary>
-    /// 
+    /// Update check the condition
     /// </summary>
     private void HandleEvents()
     {
@@ -175,6 +171,14 @@ public class Queue_system : MonoBehaviour
             }
         }
     }
+
+    private void ReloadAsset(GameObject gameObject)
+    {
+        GameObject newAsset = Instantiate(gameObject);
+        newAsset.transform.SetParent(vehiclesGrp[gameObject.name].vehicleGrp.transform);
+        newAsset.SetActive(false);
+    }
+
     /// <summary>
     /// Get vehicle from the selected group
     /// </summary>
@@ -241,32 +245,6 @@ public class Queue_system : MonoBehaviour
                     newGameObj.SetActive(false);
                 }
             }
-        }
-    }
-
-    /// <summary>
-    /// Load the selected addressable asset into the vehicle group
-    /// </summary>
-    /// <param name="assetReference"></param>
-    private void ReloadAsset(AssetReference assetReference)
-    {
-        AsyncOperationHandle<GameObject> handle = assetReference.LoadAssetAsync<GameObject>();
-        handle.Completed += Handle_ReloadCompleted;
-    }
-    /// <summary>
-    /// Event receive the completion of loading the asset and put it inside the vehicle's group
-    /// </summary>
-    /// <param name="handle"></param>
-    private void Handle_ReloadCompleted(AsyncOperationHandle<GameObject> handle)
-    {
-        if (handle.Status == AsyncOperationStatus.Succeeded)
-        {
-            GameObject reloadedAsset = handle.Result;
-            Debug.Log($"Handle_ReloadCompleted: {reloadedAsset.name}");
-            GameObject newAsset = Instantiate(reloadedAsset);
-            newAsset.transform.SetParent(vehiclesGrp[reloadedAsset.name].vehicleGrp.transform);
-            newAsset.SetActive(false);
-            // Do something with the reloaded asset.
         }
     }
 
