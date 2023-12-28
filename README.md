@@ -58,8 +58,17 @@ Link: | Description:
 The C# queue is a FIFO queue collection class in the System. Collection namespace. Storing elements in FIFO style (First In, First Out), the C# queue contains elements in precisely the order they were added, with objects added at one end and removed from the opposite end. Addressable enable loading assets on-demand, reducing initial loading times and memory usage. Assets can be updated independently, and only the necessary changes are downloaded, minimizing the size of updates for players. Assets can be hosted remotely, allowing developers to deliver updates without requiring users to download an entire game package. Addressable provide a way to manage asset dependencies, allowing developers to load assets and their associated resources efficiently.
 (https://www.linkedin.com/pulse/asset-bundle-vs-addressable-gamecrio/
 
+### How to load addressable assets from a remote server:
+(https://gamedevbeginner.com/addressable-assets-in-unity/)
+1. Create a new Addressables Asset profile, where the Remote Load Path is the location of your files.
+2. Select Build Remote Catalog in the addressable system settings.
+3. If you will need to update your built content, not replace it. To do this, instead of building new asset data, select Update a Previous Build.
+
 ![Image of Queue](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Queue_system.PNG)
 ![Image of Addressable unity](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/Addressable_Group.PNG)
+![Image of Addressable unity](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/AddressablesIP_Address.png)
+![Image of Addressable unity](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Document/Images/AddressablesRemoteSetting.png)
+
 
 ### Description:
 Link: | Description:
