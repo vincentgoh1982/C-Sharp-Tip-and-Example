@@ -74,9 +74,10 @@ The C# queue is a FIFO queue collection class in the System. Collection namespac
 Link: | Description:
 ------------ | -------------
 [FakeJsonData.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/FakeJsonData.cs)|FakeJsonData is replicate a server sending json file to the device.
-[Queue_system.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Queue_system.cs)|Manage all the elements or gameobject's action in FIFO style.
+[Queue_system.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Queue_system.cs)|Manage all the elements or gameobject's action in FIFO style. Addressables asset will load from the remote server at the start of the application.
 [Vehicle_Movement.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Vehicle_Movement.cs)|Moving gameobject in a queue system (FIFO style).
 [Model_Vehicle.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example/blob/main/Assets/Project/Script/Queue_System/Model_Vehicle.cs)|Vehicle's properties.
+[ChangeAddressablesIPAddress.cs](https://github.com/vincentgoh1982/C-Sharp-Tip-and-Example?tab=readme-ov-file#queue-and-addressable-unity)|Change the addressable remote ip address on realtime from reading the json file.
 ---
 
 ---
